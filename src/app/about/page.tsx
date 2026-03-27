@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { AirVent, Mountain, Sparkles, Quote, Leaf } from "lucide-react";
 
 const fadeUp = {
@@ -9,7 +9,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.85, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
   }),
 };
 
@@ -28,7 +28,7 @@ export default function AboutPage() {
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-secondary font-label font-bold tracking-[0.35em] uppercase text-[10px] mb-6 block flex items-center gap-4"
             >
               <span className="inline-block h-[1px] w-10 bg-secondary" />
@@ -38,7 +38,7 @@ export default function AboutPage() {
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-5xl md:text-8xl leading-[0.9] mb-10 text-on-surface font-headline tracking-[-0.025em]"
             >
               The Legacy of{" "}
@@ -49,7 +49,7 @@ export default function AboutPage() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.4, duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed font-light"
             >
               Founded on the banks of the sacred Ganges, Swami Jeetanand Yog Sansthan
@@ -76,7 +76,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.5, duration: 1.1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative"
             >
               <Image src="/images/swami.png" alt="Swami Jeetanand" fill className="object-cover" />
@@ -188,7 +188,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="w-full md:w-1/2 order-2 md:order-1"
           >
             <div className="relative">

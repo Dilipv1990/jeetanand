@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { CheckCircle, ArrowRight, Flower2, Droplets, Zap } from "lucide-react";
 
 const fadeUp = {
@@ -9,7 +9,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.85, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
   }),
 };
 
@@ -23,7 +23,7 @@ export default function ServicesPage() {
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) }}
           className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-6 flex items-center gap-4"
         >
           <span className="inline-block h-[1px] w-8 bg-secondary" />
@@ -34,7 +34,7 @@ export default function ServicesPage() {
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
           className="text-5xl md:text-7xl leading-[0.9] mb-8 font-headline text-on-surface tracking-[-0.025em]"
         >
           Sacred{" "}
@@ -45,7 +45,7 @@ export default function ServicesPage() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.4, duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
           className="max-w-2xl text-on-surface-variant text-lg leading-relaxed font-light"
         >
           Discover a harmonious blend of ancient Indian healing traditions and modern
@@ -249,7 +249,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="relative"
           >
             <div className="absolute -top-12 -left-12 w-48 h-48 bg-secondary/5 rounded-full blur-3xl" />

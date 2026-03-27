@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { ChevronLeft, ChevronRight, ExternalLink, Clock, User } from "lucide-react";
 import { useState } from "react";
 
@@ -19,7 +19,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.85, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
   }),
 };
 
@@ -43,7 +43,7 @@ export default function SchedulePage() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="font-label text-[10px] uppercase tracking-[0.4em] text-secondary mb-5 flex items-center gap-4"
           >
             <span className="inline-block h-[1px] w-10 bg-secondary" />
@@ -52,7 +52,7 @@ export default function SchedulePage() {
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="font-headline text-5xl md:text-7xl text-on-surface leading-[0.9] mb-8 tracking-[-0.025em]"
           >
             Guided Journeys{" "}
@@ -61,7 +61,7 @@ export default function SchedulePage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.4, duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="text-on-surface-variant text-lg leading-relaxed font-light max-w-2xl"
           >
             Join our collective breath across five sanctuary locations. Each session is a

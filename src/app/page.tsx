@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { Play, ArrowRight, Sun, MapPin, Building2, Flower2 } from "lucide-react";
 
 const fadeUp = {
@@ -9,7 +9,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
   }),
 };
 
@@ -17,7 +17,7 @@ const fadeIn = {
   hidden: { opacity: 0 },
   visible: (delay = 0) => ({
     opacity: 1,
-    transition: { duration: 1, delay, ease: "easeOut" },
+    transition: { duration: 1, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
   }),
 };
 
@@ -63,7 +63,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="flex items-center gap-4 mb-8"
             >
               <div className="h-[1px] w-14 bg-secondary" />
@@ -76,7 +76,7 @@ export default function Home() {
             <motion.h1
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, delay: 0.2, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-6xl md:text-[7.5rem] font-headline leading-[0.88] mb-10 tracking-[-0.03em] text-on-surface font-light"
             >
               Find the pause{" "}
@@ -88,7 +88,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, delay: 0.4, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-lg md:text-xl text-on-surface-variant max-w-[480px] mb-14 leading-relaxed font-light"
             >
               A sanctuary where movement meets stillness. Reconnect with your inner
@@ -99,7 +99,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.9, delay: 0.6, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="flex flex-wrap gap-6 items-center"
             >
               <button className="btn-shine bg-primary text-on-primary px-12 py-5 rounded-full font-bold text-[11px] uppercase tracking-[0.2em] hover:scale-[1.04] hover:shadow-2xl hover:shadow-primary/40 transition-all duration-500 shadow-xl shadow-primary/30">
@@ -233,7 +233,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="lg:col-span-7 order-1 lg:order-2"
             >
               <div className="aspect-[16/10] rounded-[4rem] overflow-hidden relative group shadow-2xl">
