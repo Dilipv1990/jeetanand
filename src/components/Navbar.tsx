@@ -39,14 +39,14 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-3">
           <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500
-            ${solidNav ? "border-primary/30 bg-primary/5" : "border-white/30 bg-white/10"}`}
+            ${solidNav ? "border-primary/30 bg-primary/5" : "border-primary/20 bg-primary/5"}`}
           >
             <div className={`w-3 h-3 rounded-full transition-colors duration-500
-              ${solidNav ? "bg-primary" : "bg-white"}`}
+              ${solidNav ? "bg-primary" : "bg-primary"}`}
             />
           </div>
           <span className={`text-[15px] font-headline font-semibold tracking-tight transition-colors duration-500
-            ${solidNav ? "text-primary" : "text-white"}`}
+            ${solidNav ? "text-primary" : "text-primary"}`}
           >
             Swami Jeetanand
           </span>
@@ -62,18 +62,18 @@ export default function Navbar() {
                 href={href}
                 className={`relative text-[10px] tracking-[0.25em] uppercase font-bold transition-all duration-300 group pb-0.5
                   ${isActive
-                    ? solidNav ? "text-primary" : "text-white"
+                    ? "text-primary"
                     : solidNav
                       ? "text-on-surface-variant hover:text-primary"
-                      : "text-white/70 hover:text-white"
+                      : "text-on-surface-variant hover:text-primary"
                   }
                 `}
               >
                 {label}
                 <span className={`absolute bottom-0 left-0 h-[1.5px] transition-all duration-500
                   ${isActive
-                    ? "w-full " + (solidNav ? "bg-primary" : "bg-white")
-                    : "w-0 " + (solidNav ? "bg-primary group-hover:w-full" : "bg-white group-hover:w-full")
+                    ? "w-full bg-primary"
+                    : "w-0 bg-primary group-hover:w-full"
                   }
                 `} />
               </Link>
@@ -83,10 +83,10 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <button
-          className={`btn-shine px-7 py-2.5 rounded-full font-label text-[11px] font-bold uppercase tracking-widest transition-all duration-500 shadow-sm
+          className={`btn-shine px-7 py-2.5 rounded-full font-label text-[11px] font-bold uppercase tracking-widest transition-all duration-500 shadow-xl
             ${solidNav
               ? "bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container"
-              : "bg-white/15 text-white border border-white/25 hover:bg-white hover:text-primary backdrop-blur-sm"
+              : "bg-primary text-on-primary hover:scale-[1.05] shadow-primary/20"
             }
           `}
         >

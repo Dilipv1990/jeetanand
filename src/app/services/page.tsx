@@ -233,7 +233,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex items-center gap-4">
                 <div className="h-[1px] w-10 bg-on-primary/30" />
-                <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-on-primary/70">
+                <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-on-primary">
                   Dynamic Strength
                 </span>
               </div>

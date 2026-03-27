@@ -42,109 +42,135 @@ export default function Home() {
     <div className="bg-grain min-h-screen">
 
       {/* ─── Hero ─── */}
-      <section className="relative min-h-[100vh] flex items-center overflow-hidden">
-        {/* Background */}
+      <section className="relative min-h-screen flex items-center bg-background overflow-hidden">
+        {/* Background Decorative Elements */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero.png"
-            alt="Sunrise over Ganges"
-            fill
-            className="object-cover"
-            quality={90}
-            priority
-          />
-          <div className="absolute inset-0 hero-gradient" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/40" />
+          <div className="absolute top-[-5%] right-[-5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[35%] h-[45%] bg-secondary/5 rounded-full blur-[80px]" />
         </div>
 
-        <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-8 md:px-16 pt-36 pb-24">
-          <div className="max-w-3xl">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-              className="flex items-center gap-4 mb-8"
-            >
-              <div className="h-[1px] w-14 bg-secondary" />
-              <span className="font-label text-[10px] tracking-[0.45em] uppercase text-secondary font-bold">
-                The Living Sanctuary · Est. 1994
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-              className="text-6xl md:text-[7.5rem] font-headline leading-[0.88] mb-10 tracking-[-0.03em] text-on-surface font-light"
-            >
-              Find the pause{" "}
-              <br />
-              <span className="italic text-primary font-medium">between breaths.</span>
-            </motion.h1>
-
-            {/* Sub */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-              className="text-lg md:text-xl text-on-surface-variant max-w-[480px] mb-14 leading-relaxed font-light"
-            >
-              A sanctuary where movement meets stillness. Reconnect with your inner
-              essence through authentic yogic practices rooted in ancient lineage.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.6, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-              className="flex flex-wrap gap-6 items-center"
-            >
-              <button className="btn-shine bg-primary text-on-primary px-12 py-5 rounded-full font-bold text-[11px] uppercase tracking-[0.2em] hover:scale-[1.04] hover:shadow-2xl hover:shadow-primary/40 transition-all duration-500 shadow-xl shadow-primary/30">
-                Book a Session
-              </button>
-              <button className="flex items-center gap-4 text-primary font-bold text-[11px] uppercase tracking-[0.2em] group">
-                <span className="w-12 h-12 rounded-full border border-primary/25 flex items-center justify-center group-hover:bg-primary/8 group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300">
-                  <Play className="w-4 h-4 fill-primary" />
+        <div className="relative z-10 max-w-screen-2xl mx-auto w-full px-8 md:px-16 pt-32 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Column: Content */}
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                className="flex items-center gap-6 mb-12"
+              >
+                <div className="h-[1px] w-16 bg-secondary" />
+                <span className="font-label text-xs tracking-[0.5em] uppercase text-secondary font-bold">
+                  The Living Sanctuary · Est. 1994
                 </span>
-                Our Philosophy
-              </button>
-            </motion.div>
+              </motion.div>
+
+              <div className="overflow-hidden mb-12">
+                <motion.h1
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-6xl md:text-[8rem] font-headline leading-[0.82] tracking-[-0.04em] text-on-surface font-light"
+                >
+                  Find the pause
+                </motion.h1>
+                <motion.h1
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="text-6xl md:text-[8rem] font-headline leading-[0.82] tracking-[-0.04em] text-on-surface font-light"
+                >
+                  <span className="italic text-primary font-medium pr-8">between breaths.</span>
+                </motion.h1>
+              </div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="text-xl md:text-2xl text-on-surface-variant max-w-[500px] mb-16 leading-relaxed font-light"
+              >
+                A sanctuary where movement meets stillness. Reconnect with your inner
+                essence through authentic yogic practices rooted in ancient lineage.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-wrap gap-8 items-center"
+              >
+                <button className="btn-shine bg-primary text-on-primary px-14 py-6 rounded-full font-bold text-[12px] uppercase tracking-[0.25em] hover:scale-[1.05] shadow-2xl shadow-primary/30 transition-all duration-500">
+                  Book a Session
+                </button>
+                <button className="flex items-center gap-6 text-primary font-bold text-[12px] uppercase tracking-[0.25em] group">
+                  <span className="w-14 h-14 rounded-full border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:scale-110 transition-all duration-500">
+                    <Play className="w-5 h-5 fill-primary group-hover:fill-white transition-colors" />
+                  </span>
+                  Our Philosophy
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Dual Images Staggered */}
+            <div className="relative hidden lg:grid grid-cols-2 gap-8 items-start">
+              {/* Card 1: Meditation */}
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="relative aspect-[4/6] rounded-[6rem] overflow-hidden shadow-2xl border-[8px] border-white group mt-32"
+              >
+                <Image
+                  src="/images/hero_meditation.png"
+                  alt="Meditation Mudra"
+                  fill
+                  className="object-cover transition-transform duration-[2000ms] group-hover:scale-110 brightness-[1.05] contrast-[1.1]"
+                  priority
+                  unoptimized={true}
+                />
+              </motion.div>
+
+              {/* Card 2: Yoga Woman */}
+              <motion.div
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="relative aspect-[4/6] rounded-[6rem] overflow-hidden shadow-2xl border-[8px] border-white group"
+              >
+                <Image
+                  src="/images/hero_woman_final.png"
+                  alt="Woman performing Yoga"
+                  fill
+                  className="object-cover transition-transform duration-[2000ms] group-hover:scale-110 brightness-[1.05] contrast-[1.1]"
+                  priority
+                  unoptimized={true}
+                />
+              </motion.div>
+
+              {/* Decorative Circular Text or Icon */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-primary/10 rounded-full flex items-center justify-center -z-10"
+              >
+                <div className="w-24 h-24 border border-secondary/5 rounded-full" />
+              </motion.div>
+            </div>
+
           </div>
         </div>
-
-        {/* Floating Card */}
-        <motion.div
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden xl:block absolute bottom-20 right-20 w-72 p-10 bg-white/50 backdrop-blur-3xl rounded-[3rem] border border-white/60 shadow-2xl shadow-stone-900/10"
-        >
-          <div className="mb-6 flex justify-between items-start">
-            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
-              <Flower2 className="text-secondary w-5 h-5" />
-            </div>
-            <span className="text-[9px] font-bold text-stone-400 tracking-[0.2em] uppercase">Est. 1994</span>
-          </div>
-          <p className="text-[14px] italic font-headline text-on-surface leading-relaxed mb-5">
-            &quot;Yoga is not just a practice, it&apos;s the art of returning to yourself.&quot;
-          </p>
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-[1px] bg-secondary/40" />
-            <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-secondary">Swami Jeetanand</span>
-          </div>
-        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          transition={{ delay: 1.5, duration: 1.2 }}
+          className="absolute bottom-10 left-16 flex flex-col items-center gap-4"
         >
-          <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/50">Scroll</span>
-          <div className="w-[1px] h-10 bg-gradient-to-b from-on-surface-variant/30 to-transparent" />
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-on-surface-variant vertical-text">Scroll</span>
+          <div className="w-[1px] h-16 bg-gradient-to-b from-primary/50 to-transparent" />
         </motion.div>
       </section>
 
@@ -183,7 +209,7 @@ export default function Home() {
             <span
               key={i}
               className={`font-label text-[11px] uppercase tracking-[0.3em] font-bold flex-shrink-0 ${
-                item === "•" ? "text-primary/30" : "text-on-surface-variant/60"
+                item === "•" ? "text-primary/30" : "text-on-surface-variant"
               }`}
             >
               {item}
@@ -222,7 +248,7 @@ export default function Home() {
                 meditation techniques tailored for every stage of your journey.
               </motion.p>
               <motion.div variants={fadeUp} custom={0.2} className="flex gap-4 items-center">
-                <span className="font-label text-[10px] uppercase tracking-widest text-stone-400 font-bold">
+                <span className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">
                   Discover our methods
                 </span>
                 <div className="flex-grow h-[1px] bg-stone-200" />
@@ -374,7 +400,7 @@ export default function Home() {
                 className="bg-white p-12 rounded-[3.5rem] shadow-sm hover:shadow-2xl hover:-translate-y-4 transition-all duration-600 border border-outline/5 group cursor-pointer"
               >
                 <div className="flex justify-between items-start mb-12">
-                  <span className="text-[10px] font-bold text-stone-300 tracking-[0.3em] uppercase">
+                  <span className="text-[10px] font-bold text-on-surface-variant tracking-[0.3em] uppercase">
                     Center 0{idx + 1}
                   </span>
                   <div className="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-400">

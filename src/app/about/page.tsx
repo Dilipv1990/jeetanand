@@ -314,7 +314,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <div className="text-sm font-bold text-on-surface">5,000+</div>
-                <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-outline">Global Seekers</div>
+                <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-on-surface-variant">Global Seekers</div>
               </div>
             </div>
           </motion.div>

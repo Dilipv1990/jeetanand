@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-20">
             {links.map(({ heading, items }) => (
               <div key={heading} className="flex flex-col gap-5">
-                <span className="text-[9px] font-bold text-outline uppercase tracking-[0.35em]">
+                <span className="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.35em]">
                   {heading}
                 </span>
                 {items.map(({ label, href }) => (
@@ -96,12 +96,12 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-5">
-          <p className="text-[10px] text-outline font-bold uppercase tracking-[0.25em]">
+          <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.25em]">
             © 2025 Swami Jeetanand Yog Sansthan
           </p>
           <div className="flex items-center gap-2.5">
             <Sprout className="w-3.5 h-3.5 text-primary" />
-            <p className="text-[10px] text-outline font-medium uppercase tracking-[0.2em] italic">
+            <p className="text-[10px] text-on-surface-variant font-medium uppercase tracking-[0.2em] italic">
               Design for the pause between breaths.
             </p>
           </div>

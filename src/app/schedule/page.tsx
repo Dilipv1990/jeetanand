@@ -27,7 +27,7 @@ const typeBadgeColors: Record<string, string> = {
   Meditation: "bg-primary/10 text-primary",
   Asana: "bg-secondary/10 text-secondary",
   Gentle: "bg-tertiary/10 text-tertiary",
-  Kriya: "bg-stone-100 text-stone-600",
+  Kriya: "bg-stone-100 text-stone-700",
 };
 
 export default function SchedulePage() {
@@ -117,14 +117,14 @@ export default function SchedulePage() {
               </div>
               <div className="flex items-center gap-6">
                 <div className="flex flex-col gap-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-outline font-bold flex items-center gap-1.5">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
                     <Clock className="w-3 h-3" /> Time
                   </span>
                   <span className="text-xl font-medium text-primary">06:00 — 07:30</span>
                 </div>
                 <div className="w-px h-10 bg-outline-variant" />
                 <div className="flex flex-col gap-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-outline font-bold flex items-center gap-1.5">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
                     <User className="w-3 h-3" /> Guide
                   </span>
                   <span className="text-xl font-medium text-primary">Acharya Ved</span>

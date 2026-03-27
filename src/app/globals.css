@@ -17,9 +17,8 @@
   --color-on-secondary: #ffffff;
   --color-on-tertiary: #ffffff;
   --color-on-surface: #1d1c15;
-  --color-on-surface-variant: #434843;
-
-  --color-outline: #747872;
+  --color-on-surface-variant: #3b403b;
+  --color-outline: #585d58;
   --color-outline-variant: #c4c8c1;
 
   --color-surface-container: #f2ede2;
@@ -107,7 +106,7 @@ h1, h2, h3, .font-headline {
 }
 
 .hero-gradient {
-  background: linear-gradient(to right, rgba(254, 249, 238, 0.88) 0%, rgba(254, 249, 238, 0.60) 50%, rgba(254, 249, 238, 0) 100%);
+  background: linear-gradient(to right, rgba(254, 249, 238, 0.65) 0%, rgba(254, 249, 238, 0.35) 50%, rgba(254, 249, 238, 0) 100%);
 }
 
 /* Text gradient utility */
