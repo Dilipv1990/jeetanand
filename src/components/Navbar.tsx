@@ -48,7 +48,7 @@ export default function Navbar() {
           <span className={`text-[15px] font-headline font-semibold tracking-tight transition-colors duration-500
             ${solidNav ? "text-primary" : "text-primary"}`}
           >
-            Swami Jeetanand
+            Prachi Yoga Center
           </span>
         </Link>
 

@@ -45,7 +45,7 @@ export default function Footer() {
                 <div className="w-3 h-3 rounded-full bg-primary" />
               </div>
               <h2 className="text-[17px] font-headline font-semibold text-primary tracking-tight">
-                Swami Jeetanand
+                Prachi Yoga Center
               </h2>
             </div>
             <p className="text-[14px] text-on-surface-variant leading-relaxed font-light mb-8">
@@ -97,7 +97,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-5">
           <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.25em]">
-            © 2025 Swami Jeetanand Yog Sansthan
+            © 2025 Prachi Yoga Center
           </p>
           <div className="flex items-center gap-2.5">
             <Sprout className="w-3.5 h-3.5 text-primary" />

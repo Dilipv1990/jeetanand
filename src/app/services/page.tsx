@@ -2,7 +2,89 @@
 
 import Image from "next/image";
 import { motion, cubicBezier } from "framer-motion";
-import { CheckCircle, ArrowRight, Flower2, Droplets, Zap } from "lucide-react";
+import {
+  CheckCircle,
+  ArrowRight,
+  Flower2,
+  Droplets,
+  Zap,
+  Smile,
+  Award,
+  HeartPulse,
+  Users,
+  Leaf,
+  House,
+  GraduationCap,
+} from "lucide-react";
+
+const classCatalog = [
+  {
+    title: "Main Yoga Classes",
+    icon: Flower2,
+    items: [
+      "Hatha Yoga – beginners, flexibility, strength",
+      "Vinyasa Yoga – flow, fitness, flexibility",
+      "Ashtanga Yoga – strength and disciplined practice",
+      "Power Yoga – fitness, weight management",
+      "Yin Yoga – deep stretching and relaxation",
+      "Restorative Yoga – gentle, relaxation-focused",
+    ],
+  },
+  {
+    title: "Therapeutic Yoga",
+    icon: HeartPulse,
+    items: [
+      "Back Pain Yoga",
+      "Knee & Joint Care Yoga",
+      "Cervical/Neck Care Yoga",
+      "Stress & Anxiety Management",
+      "Yoga for Diabetes",
+      "Yoga for Women's Wellness",
+      "Postnatal Yoga – only with appropriate medical clearance",
+    ],
+  },
+  {
+    title: "Special Groups",
+    icon: Users,
+    items: [
+      "Kids Yoga",
+      "Senior Citizen Yoga",
+      "Corporate Yoga",
+      "Personal/1-to-1 Yoga",
+      "Family Yoga",
+    ],
+  },
+  {
+    title: "Wellness",
+    icon: Leaf,
+    items: ["Pranayama", "Meditation", "Sound Healing", "Yoga Nidra", "Breathwork"],
+  },
+];
+
+const homeClasses = [
+  "Group Classes",
+  "Kids Yoga",
+  "Senior Yoga",
+  "Therapeutic Yoga — back, knee, cervical, stress, etc.",
+  "Weight-loss & fitness yoga",
+  "Meditation & pranayama",
+];
+
+const certifications = [
+  { name: "1 Month", detail: "Certificate Course" },
+  { name: "3 Month", detail: "Certificate Course" },
+  { name: "6 Month", detail: "Certificate Course" },
+  { name: "TTC 200 Hrs", detail: "Teacher Training" },
+  { name: "TTC 300 Hrs", detail: "Teacher Training" },
+  { name: "TTC 500 Hrs", detail: "Teacher Training" },
+];
+
+const retreats = [
+  "Ayurvedic Panchakarma Retreat with Doctor Consultation",
+  "Panchakarma Detox & Wellness Retreat",
+  "Ayurveda, Yoga & Panchakarma Retreat",
+  "Holistic Wellness Retreat with Ayurvedic Doctor Consultation",
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -93,6 +175,7 @@ export default function ServicesPage() {
               alt="Yoga Studio"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
         </motion.div>
@@ -115,7 +198,13 @@ export default function ServicesPage() {
             unwavering clarity.
           </p>
           <div className="mt-auto aspect-square rounded-[32px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative">
-            <Image src="/images/meditation.png" alt="Meditation" fill className="object-cover" />
+            <Image 
+              src="/images/meditation.png" 
+              alt="Meditation" 
+              fill 
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </div>
         </motion.div>
 
@@ -141,7 +230,13 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="relative h-64 w-full rounded-[32px] overflow-hidden shadow-lg">
-            <Image src="/images/marma.png" alt="Marma Healing" fill className="object-cover" />
+            <Image 
+              src="/images/marma.png" 
+              alt="Marma Healing" 
+              fill 
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
             <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:bg-transparent transition-all duration-700" />
           </div>
         </motion.div>
@@ -161,6 +256,7 @@ export default function ServicesPage() {
               alt="Pranayama Mountain"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div>
@@ -208,6 +304,7 @@ export default function ServicesPage() {
                 alt="Kriya Water"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>
@@ -240,6 +337,210 @@ export default function ServicesPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Kids Yoga Program */}
+        <motion.div
+          id="kids-yoga"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
+          custom={0}
+          className="scroll-mt-32 md:col-span-12 bg-surface-container-low p-10 md:p-14 rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-12 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+        >
+          <div className="flex flex-col justify-center">
+            <span className="text-primary font-label text-[10px] tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
+              <Smile className="w-4 h-4" /> For Young Seekers
+            </span>
+            <h2 className="text-4xl mb-6 font-headline text-on-surface">Kids Yoga Program</h2>
+            <div className="flex flex-wrap gap-3 mb-10">
+              {["Fun", "Fitness", "Focus", "Confidence", "Certificate"].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[9px] tracking-[0.25em] font-label uppercase text-primary border border-primary/20 px-4 py-2 rounded-full hover:bg-primary/5 transition-colors cursor-default"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-start gap-4 bg-secondary/10 rounded-3xl p-6">
+              <Award className="text-secondary w-7 h-7 flex-shrink-0" />
+              <p className="text-[14px] text-on-surface leading-relaxed">
+                <strong className="font-semibold">Certificate of Completion</strong> provided
+                after successfully completing the program.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col justify-center">
+            <p className="text-on-surface-variant mb-6 leading-relaxed text-[15px]">
+              Children will learn age-appropriate:
+            </p>
+            <ul className="space-y-4">
+              {[
+                "Yoga postures & flexibility",
+                "Breathing techniques",
+                "Balance & coordination",
+                "Relaxation and mindfulness",
+                "Strength and body awareness",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-[14px] text-on-surface font-medium">
+                  <CheckCircle className="text-primary w-5 h-5 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ─── Class Catalog ─── */}
+      <section id="classes" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center mb-16"
+        >
+          <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
+            Our Classes
+          </motion.span>
+          <motion.h2 variants={fadeUp} custom={0.1} className="text-4xl md:text-5xl font-headline text-on-surface tracking-tight">
+            Something for <span className="italic text-secondary">Every Seeker</span>
+          </motion.h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {classCatalog.map(({ title, icon: Icon, items }, i) => (
+            <motion.div
+              key={title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              custom={(i % 2) * 0.12}
+              className="bg-surface-container-low p-10 rounded-[40px] border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+                <Icon className="text-primary w-6 h-6" />
+              </div>
+              <h3 className="text-3xl mb-6 font-headline text-on-surface">{title}</h3>
+              <ul className="space-y-3">
+                {items.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[14px] text-on-surface font-medium">
+                    <CheckCircle className="text-primary w-5 h-5 flex-shrink-0 mt-px" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Home & Personal Classes ─── */}
+      <section id="home-classes" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
+          custom={0}
+          className="bg-primary text-on-primary p-10 md:p-14 rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-12 shadow-xl relative overflow-hidden"
+        >
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full pointer-events-none" />
+          <div className="relative z-10 flex flex-col justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
+              <House className="w-6 h-6 text-secondary-container" />
+            </div>
+            <h2 className="text-4xl mb-5 font-headline">Home &amp; Personal Yoga Classes</h2>
+            <p className="text-on-primary/80 leading-relaxed text-[15px] font-light">
+              Practice in the comfort of your own home with a dedicated instructor, one-to-one
+              or with your family and friends.
+            </p>
+          </div>
+          <ul className="relative z-10 space-y-4 flex flex-col justify-center">
+            {homeClasses.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-[14px] font-medium">
+                <CheckCircle className="text-secondary-container w-5 h-5 flex-shrink-0 mt-px" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* ─── Panchakarma & Ayurveda Retreats ─── */}
+      <section id="retreats" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center mb-16"
+        >
+          <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
+            Retreats
+          </motion.span>
+          <motion.h2 variants={fadeUp} custom={0.1} className="text-4xl md:text-5xl font-headline text-on-surface tracking-tight">
+            Panchakarma &amp; <span className="italic text-secondary">Ayurveda</span> Wellness Retreat
+          </motion.h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {retreats.map((retreat, i) => (
+            <motion.div
+              key={retreat}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              custom={(i % 2) * 0.12}
+              className="bg-surface-container p-8 rounded-[32px] flex items-center gap-5 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                <Leaf className="text-secondary w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-headline text-on-surface">{retreat}</h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Certifications ─── */}
+      <section id="certifications" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="text-center mb-16"
+        >
+          <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
+            Certifications
+          </motion.span>
+          <motion.h2 variants={fadeUp} custom={0.1} className="text-4xl md:text-5xl font-headline text-on-surface tracking-tight">
+            Courses &amp; <span className="italic text-secondary">Teacher Training</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} custom={0.2} className="text-on-surface-variant mt-6 max-w-xl mx-auto leading-relaxed font-light">
+            A certificate is awarded after successful completion of every course.
+          </motion.p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {certifications.map(({ name, detail }, i) => (
+            <motion.div
+              key={name}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              custom={(i % 3) * 0.1}
+              className="bg-surface-container-low p-8 rounded-[32px] flex flex-col items-center text-center border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              <GraduationCap className="text-primary w-8 h-8 mb-5" />
+              <h3 className="text-2xl font-headline text-on-surface mb-2">{name}</h3>
+              <span className="text-[9px] tracking-[0.25em] font-label uppercase text-secondary">{detail}</span>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* ─── Educational Deep Dive ─── */}
@@ -259,6 +560,7 @@ export default function ServicesPage() {
                 alt="Ancient Manuscript"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </motion.div>
@@ -275,7 +577,7 @@ export default function ServicesPage() {
             </motion.h2>
             <div className="space-y-6 text-on-surface-variant leading-relaxed font-light text-[15px]">
               <motion.p variants={fadeUp} custom={0.1}>
-                Our approach at Swami Jeetanand Yog Sansthan isn&apos;t merely about physical
+                Our approach at Prachi Yoga Center isn&apos;t merely about physical
                 postures. It is a rigorous scientific enquiry into the human mechanism.
               </motion.p>
               <motion.p variants={fadeUp} custom={0.2}>

@@ -17,7 +17,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Swami Jeetanand Yog Sansthan | The Living Sanctuary",
+  title: "Prachi Yoga Center | The Living Sanctuary",
   description: "A sanctuary where movement meets stillness. Reconnect with your inner essence through authentic yogic practices.",
 };
 

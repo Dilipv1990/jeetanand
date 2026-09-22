@@ -66,7 +66,7 @@ export default function SchedulePage() {
           >
             Join our collective breath across five sanctuary locations. Each session is a
             step toward inner stillness, led by practitioners dedicated to the ancient
-            lineage of Swami Jeetanand.
+            lineage of Prachi Yoga Center.
           </motion.p>
         </div>
       </header>
@@ -137,6 +137,7 @@ export default function SchedulePage() {
                 alt="Yoga practice"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
           </motion.div>
@@ -267,6 +268,7 @@ export default function SchedulePage() {
             alt="Meditation Space"
             fill
             className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-primary/25 backdrop-blur-[3px] flex items-center justify-center">
             <div className="text-center">
@@ -317,6 +319,7 @@ export default function SchedulePage() {
                   alt={loc.name}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/0 transition-colors duration-500" />
                 {idx === 0 && (

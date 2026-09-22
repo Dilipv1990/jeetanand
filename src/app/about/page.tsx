@@ -52,7 +52,7 @@ export default function AboutPage() {
               transition={{ delay: 0.4, duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed font-light"
             >
-              Founded on the banks of the sacred Ganges, Swami Jeetanand Yog Sansthan
+              Founded on the banks of the sacred Ganges, Prachi Yoga Center
               is more than a school — it is a sanctuary where the ancient rhythm of
               breath meets modern stillness.
             </motion.p>
@@ -79,7 +79,13 @@ export default function AboutPage() {
               transition={{ delay: 0.5, duration: 1.1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
               className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative"
             >
-              <Image src="/images/swami.png" alt="Swami Jeetanand" fill className="object-cover" />
+            <Image 
+              src="/images/swami.png" 
+              alt="Prachi Yoga Center" 
+              fill 
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-transparent" />
             </motion.div>
             <div className="absolute -bottom-12 -left-12 w-56 h-56 bg-secondary/8 rounded-full -z-10 blur-3xl" />
@@ -198,6 +204,7 @@ export default function AboutPage() {
                   alt="Heritage Site"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute -top-12 -right-12 w-72 h-72 border border-outline-variant/25 rounded-full -z-10" />
@@ -224,7 +231,7 @@ export default function AboutPage() {
                 into a global center for yogic research and spiritual awakening.
               </motion.p>
               <motion.p variants={fadeUp} custom={0.3}>
-                Swami Jeetanand&apos;s teachings focus on the integration of the Hatha Yoga
+                Prachi Yoga Center&apos;s teachings focus on the integration of the Hatha Yoga
                 Pradipika with the psychological needs of the 21st century — bridging the
                 gap between the sage and the seeker.
               </motion.p>
@@ -258,7 +265,7 @@ export default function AboutPage() {
             way down, and the grace you find on the way back up.&quot;
           </motion.blockquote>
           <motion.cite variants={fadeUp} custom={0.2} className="font-label uppercase tracking-[0.45em] text-[11px] text-secondary font-bold not-italic">
-            — Swami Jeetanand
+            — Prachi Yoga Center
           </motion.cite>
         </motion.div>
       </section>
