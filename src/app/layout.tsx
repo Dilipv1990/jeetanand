@@ -3,6 +3,7 @@ import { Noto_Serif, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MobileBookBar from "@/components/MobileBookBar";
 
 const notoSerif = Noto_Serif({
   variable: "--font-noto-serif",
@@ -37,6 +38,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <MobileBookBar />
       </body>
     </html>
   );

@@ -27,17 +27,17 @@ const typeBadgeColors: Record<string, string> = {
   Meditation: "bg-primary/10 text-primary",
   Asana: "bg-secondary/10 text-secondary",
   Gentle: "bg-tertiary/10 text-tertiary",
-  Kriya: "bg-stone-100 text-stone-700",
+  Kriya: "bg-primary/10 text-primary",
 };
 
 export default function SchedulePage() {
   const [activeLoc, setActiveLoc] = useState("All Sanctuaries");
 
   return (
-    <div className="bg-background min-h-screen pt-36 pb-20">
+    <div className="bg-background min-h-screen pt-28 md:pt-36 pb-16 md:pb-20">
 
       {/* ─── Hero Header ─── */}
-      <header className="px-10 max-w-screen-2xl mx-auto mb-20 relative">
+      <header className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-10 md:mb-20 relative">
         <div className="absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-3xl relative z-10">
           <motion.p
@@ -53,7 +53,7 @@ export default function SchedulePage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-            className="font-headline text-5xl md:text-7xl text-on-surface leading-[0.9] mb-8 tracking-[-0.025em]"
+            className="font-headline text-[2.75rem] sm:text-5xl md:text-7xl text-on-surface leading-[0.95] md:leading-[0.9] mb-8 tracking-[-0.025em]"
           >
             Guided Journeys{" "}
             <span className="italic text-primary">&amp; Sacred Spaces</span>
@@ -72,7 +72,7 @@ export default function SchedulePage() {
       </header>
 
       {/* ─── Location Filter ─── */}
-      <section className="px-10 max-w-screen-2xl mx-auto mb-14 overflow-x-auto no-scrollbar">
+      <section className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-8 md:mb-14 overflow-x-auto no-scrollbar">
         <div className="flex gap-3 pb-4 min-w-max">
           {locations.map((loc) => (
             <button
@@ -91,15 +91,15 @@ export default function SchedulePage() {
       </section>
 
       {/* ─── Today's Highlight ─── */}
-      <section className="px-10 max-w-screen-2xl mx-auto mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <section className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-14 md:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0}
-            className="lg:col-span-8 bg-surface-container rounded-[2.5rem] p-10 flex flex-col md:flex-row gap-10 overflow-hidden relative border border-outline/5 shadow-sm"
+            className="lg:col-span-8 bg-surface-container rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 flex flex-col md:flex-row gap-8 md:gap-10 overflow-hidden relative border border-outline/5 shadow-sm"
           >
             <div className="flex-1 flex flex-col justify-between z-10">
               <div>
@@ -107,31 +107,31 @@ export default function SchedulePage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
                   Live Now · Rishikesh
                 </span>
-                <h2 className="font-headline text-4xl text-on-surface mb-4 tracking-tight">
+                <h2 className="font-headline text-3xl md:text-4xl text-on-surface mb-4 tracking-tight">
                   Surya Namaskar &amp; Deep Flow
                 </h2>
-                <p className="text-on-surface-variant font-light mb-10 max-w-sm leading-relaxed">
+                <p className="text-on-surface-variant font-light mb-8 md:mb-10 max-w-sm leading-relaxed">
                   A foundational morning practice focusing on the breath-movement
                   synchronization. Experience the sunrise by the Ganges.
                 </p>
               </div>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6">
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
                     <Clock className="w-3 h-3" /> Time
                   </span>
-                  <span className="text-xl font-medium text-primary">06:00 — 07:30</span>
+                  <span className="text-lg md:text-xl font-medium text-primary">06:00 — 07:30</span>
                 </div>
                 <div className="w-px h-10 bg-outline-variant" />
                 <div className="flex flex-col gap-1">
                   <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
                     <User className="w-3 h-3" /> Guide
                   </span>
-                  <span className="text-xl font-medium text-primary">Acharya Ved</span>
+                  <span className="text-lg md:text-xl font-medium text-primary">Acharya Ved</span>
                 </div>
               </div>
             </div>
-            <div className="flex-1 relative min-h-[280px] md:min-h-full rounded-2xl overflow-hidden shadow-xl rotate-1 group">
+            <div className="flex-1 relative min-h-[240px] md:min-h-full rounded-2xl overflow-hidden shadow-xl rotate-1 group">
               <Image
                 src="/images/hero.png"
                 alt="Yoga practice"
@@ -150,7 +150,7 @@ export default function SchedulePage() {
             custom={0.1}
             className="lg:col-span-4 flex flex-col gap-5"
           >
-            <div className="bg-surface-container-low p-8 rounded-[2.5rem] flex-1 border border-outline/5 shadow-sm">
+            <div className="bg-surface-container-low p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] flex-1 border border-outline/5 shadow-sm">
               <h3 className="font-headline text-xl text-on-surface mb-8">Our Centers</h3>
               <div className="space-y-5">
                 {["Himalayan Retreat", "Urban Sanctuary", "Oceanic Studio", "Garden Of Peace"].map(
@@ -181,10 +181,10 @@ export default function SchedulePage() {
         viewport={{ once: true, margin: "-60px" }}
         variants={fadeUp}
         custom={0}
-        className="px-10 max-w-screen-2xl mx-auto mb-20"
+        className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-14 md:mb-20"
       >
-        <div className="bg-surface-container-lowest p-10 rounded-[3rem] border border-surface-container-high shadow-sm">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="bg-surface-container-lowest p-5 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-surface-container-high shadow-sm">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-6">
             <div>
               <h3 className="font-headline text-3xl text-on-surface mb-2 tracking-tight">
                 Weekly Schedule
@@ -203,7 +203,40 @@ export default function SchedulePage() {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Mobile: session cards */}
+          <ul className="md:hidden flex flex-col gap-3">
+            {schedule.map((row, idx) => (
+              <li
+                key={idx}
+                className="flex items-center gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline/8"
+              >
+                <div className="w-16 flex-shrink-0 text-center border-r border-outline/15 pr-3">
+                  <div className="font-headline text-xl text-primary leading-none">{row.time.split(" ")[0]}</div>
+                  <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">
+                    {row.time.split(" ")[1]}
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-on-surface text-[15px] leading-snug">{row.session}</div>
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    <span
+                      className={`text-[9px] px-2.5 py-1 rounded-full font-bold uppercase tracking-[0.12em] ${
+                        typeBadgeColors[row.type] ?? "bg-surface-container text-on-surface-variant"
+                      }`}
+                    >
+                      {row.type}
+                    </span>
+                    <span className="text-[12px] text-on-surface-variant">{row.loc} · {row.level}</span>
+                  </div>
+                </div>
+                <button className="flex-shrink-0 bg-primary text-on-primary font-bold text-[10px] tracking-[0.15em] uppercase px-4 h-11 rounded-full">
+                  Book
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="border-b border-surface-container-high">
@@ -260,9 +293,9 @@ export default function SchedulePage() {
         viewport={{ once: true, margin: "-60px" }}
         variants={fadeUp}
         custom={0}
-        className="px-10 max-w-screen-2xl mx-auto mb-24"
+        className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-16 md:mb-24"
       >
-        <div className="h-72 relative rounded-[3rem] overflow-hidden shadow-2xl border border-outline/5 group">
+        <div className="h-80 md:h-72 relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-outline/5 group">
           <Image
             src="/images/schedule_hero.png"
             alt="Meditation Space"
@@ -271,7 +304,7 @@ export default function SchedulePage() {
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-primary/25 backdrop-blur-[3px] flex items-center justify-center">
-            <div className="text-center">
+            <div className="text-center px-6">
               <h4 className="font-headline text-3xl md:text-4xl text-white mb-3 tracking-tight">
                 Can&apos;t join in person?
               </h4>
@@ -287,18 +320,18 @@ export default function SchedulePage() {
       </motion.section>
 
       {/* ─── Location Cards ─── */}
-      <section className="px-10 max-w-screen-2xl mx-auto">
+      <section className="px-4 md:px-10 max-w-screen-2xl mx-auto">
         <motion.h2
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
           custom={0}
-          className="font-headline text-4xl text-on-surface mb-16 tracking-tight"
+          className="font-headline text-3xl md:text-4xl text-on-surface mb-10 md:mb-16 tracking-tight"
         >
           Visit the Sanctuary
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {[
             { name: "Himalayan Retreat", addr: "Shakti Lane, Rishikesh", img: "/images/ashram.png" },
             { name: "Urban Sanctuary", addr: "GK II, New Delhi", img: "/images/studio.png" },

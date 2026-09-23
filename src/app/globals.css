@@ -6,37 +6,47 @@
   --font-body: var(--font-manrope);
   --font-label: var(--font-manrope);
 
-  --color-primary: #516052;
-  --color-secondary: #895033;
-  --color-tertiary: #68594a;
+  --color-primary: #c8380f;
+  --color-secondary: #c01f5c;
+  --color-tertiary: #5b2bd1;
   --color-error: #ba1a1a;
-  --color-background: #fef9ee;
-  --color-surface: #fef9ee;
+  --color-background: #fff6ea;
+  --color-surface: #fff6ea;
 
   --color-on-primary: #ffffff;
   --color-on-secondary: #ffffff;
   --color-on-tertiary: #ffffff;
-  --color-on-surface: #1d1c15;
-  --color-on-surface-variant: #3b403b;
-  --color-outline: #585d58;
-  --color-outline-variant: #c4c8c1;
+  --color-on-surface: #1f1a14;
+  --color-on-surface-variant: #4a4036;
+  --color-outline: #7a6d60;
+  --color-outline-variant: #f0cfae;
 
-  --color-surface-container: #f2ede2;
-  --color-surface-container-low: #f8f3e8;
-  --color-surface-container-high: #ede8dd;
-  --color-surface-container-highest: #e7e2d7;
+  --color-surface-container: #ffe9d4;
+  --color-surface-container-low: #fff0e0;
+  --color-surface-container-high: #ffe2c6;
+  --color-surface-container-highest: #fcd8b6;
   --color-surface-container-lowest: #ffffff;
 
-  --color-primary-container: #6a786a;
-  --color-on-primary-container: #f6fff3;
-  --color-secondary-container: #fdb38f;
-  --color-on-secondary-container: #784327;
-  --color-tertiary-container: #827261;
+  --color-primary-container: #ff6a1f;
+  --color-on-primary-container: #2a0a00;
+  --color-secondary-container: #ffb627;
+  --color-on-secondary-container: #3d2200;
+  --color-tertiary-container: #8f6bff;
   --color-on-tertiary-container: #fffbff;
 
+  /* Night sky behind the sunrise: dark hero and feature surfaces */
+  --color-ink: #170d2e;
+  --color-ink-soft: #25174a;
+
+  --animate-sunrise: sunrise 9s ease-in-out infinite alternate;
   --animate-float: float 6s ease-in-out infinite;
   --animate-marquee: marquee 40s linear infinite;
   --animate-shimmer: shimmer 3s ease-in-out infinite;
+
+  @keyframes sunrise {
+    0% { transform: translateY(6%) scale(0.94); opacity: 0.75; }
+    100% { transform: translateY(0) scale(1.06); opacity: 1; }
+  }
 
   @keyframes float {
     0% { transform: translateY(0px); }
@@ -66,8 +76,8 @@
 }
 
 :root {
-  --background: #fef9ee;
-  --foreground: #1d1c15;
+  --background: #fff6ea;
+  --foreground: #1f1a14;
 }
 
 html {
@@ -75,6 +85,7 @@ html {
 }
 
 body {
+  overflow-x: clip;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
@@ -106,12 +117,34 @@ h1, h2, h3, .font-headline {
 }
 
 .hero-gradient {
-  background: linear-gradient(to right, rgba(254, 249, 238, 0.65) 0%, rgba(254, 249, 238, 0.35) 50%, rgba(254, 249, 238, 0) 100%);
+  background: linear-gradient(to right, rgba(255, 248, 238, 0.65) 0%, rgba(255, 248, 238, 0.35) 50%, rgba(255, 248, 238, 0) 100%);
 }
 
-/* Text gradient utility */
+/* Sunrise gradients: saffron -> rose -> violet */
+.bg-sunrise {
+  background: linear-gradient(120deg, #cf3f10 0%, #c0245f 50%, #5b2bd1 100%);
+}
+
+.btn-sunrise {
+  background: linear-gradient(110deg, #cf3f10 0%, #c0245f 50%, #cf3f10 100%);
+  background-size: 200% 100%;
+  transition: background-position 0.6s ease, box-shadow 0.5s ease;
+}
+
+.btn-sunrise:hover {
+  background-position: 100% 0;
+}
+
+/* Bright variant for use on dark (ink) surfaces */
+.text-sunrise {
+  background: linear-gradient(100deg, #ffc53d 0%, #ff6a1f 38%, #ff3d7f 70%, #a77bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .text-gradient-primary {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(120deg, #d9480f 0%, var(--color-secondary) 55%, var(--color-tertiary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

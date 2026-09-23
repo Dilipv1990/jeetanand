@@ -34,10 +34,10 @@ const links = [
 export default function Footer() {
   return (
     <footer className="bg-surface-container-low border-t border-outline/8">
-      <div className="max-w-screen-2xl mx-auto px-8 md:px-16 pt-24 pb-12">
+      <div className="max-w-screen-2xl mx-auto px-5 md:px-16 pt-16 md:pt-24 pb-28 md:pb-12">
 
         {/* Top row */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-20 mb-20">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-20 mb-12 md:mb-20">
           {/* Brand */}
           <div className="max-w-sm">
             <div className="flex items-center gap-3 mb-6">
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-20">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 md:gap-12 lg:gap-20">
             {links.map(({ heading, items }) => (
               <div key={heading} className="flex flex-col gap-5">
                 <span className="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.35em]">
@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="h-[1px] bg-gradient-to-r from-transparent via-outline/20 to-transparent mb-10" />
 
         {/* Bottom row */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+        <div className="flex flex-col md:flex-row justify-between items-center text-center gap-5">
           <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.25em]">
             © 2025 Prachi Yoga Center
           </p>

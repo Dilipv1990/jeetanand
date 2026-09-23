@@ -18,12 +18,12 @@ export default function AboutPage() {
     <div className="bg-background min-h-screen pt-24">
 
       {/* ─── Hero ─── */}
-      <section className="relative min-h-[820px] flex items-center px-8 md:px-20 overflow-hidden">
+      <section className="relative py-12 md:py-0 md:min-h-[820px] flex items-center px-5 md:px-20 overflow-hidden">
         {/* Ambient blobs */}
         <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-secondary/4 rounded-full blur-[140px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-primary/4 rounded-full blur-[100px] translate-y-1/4 pointer-events-none" />
 
-        <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-16 items-center relative z-10">
+        <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center relative z-10">
           <div className="md:col-span-7">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
@@ -61,7 +61,7 @@ export default function AboutPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="mt-12 grid grid-cols-3 gap-8 max-w-sm"
+              className="mt-10 md:mt-12 grid grid-cols-3 gap-4 md:gap-8 max-w-sm"
             >
               {[["1974", "Founded"], ["50+", "Years"], ["Global", "Reach"]].map(([val, label]) => (
                 <div key={label} className="text-center">
@@ -77,7 +77,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1.1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-              className="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative"
+              className="aspect-[4/5] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl relative"
             >
             <Image 
               src="/images/swami.png" 
@@ -96,13 +96,13 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Philosophy Section ─── */}
-      <section className="py-36 bg-surface-container-low px-8 md:px-20">
+      <section className="py-20 md:py-36 bg-surface-container-low px-5 md:px-20">
         <div className="max-w-screen-2xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="mb-20 text-center max-w-3xl mx-auto"
+            className="mb-12 md:mb-20 text-center max-w-3xl mx-auto"
           >
             <motion.div variants={fadeUp} custom={0} className="flex items-center gap-4 justify-center mb-6">
               <div className="h-[1px] w-10 bg-outline-variant" />
@@ -120,7 +120,7 @@ export default function AboutPage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {[
               {
                 icon: AirVent,
@@ -152,7 +152,7 @@ export default function AboutPage() {
                 viewport={{ once: true, margin: "-60px" }}
                 variants={fadeUp}
                 custom={idx * 0.12}
-                className={`p-10 rounded-[2.5rem] flex flex-col justify-between group transition-all duration-700
+                className={`p-7 md:p-10 rounded-[2rem] md:rounded-[2.5rem] flex flex-col justify-between group transition-all duration-700
                   ${variant === "dark"
                     ? "bg-primary text-on-primary shadow-2xl shadow-primary/20"
                     : "bg-surface-container-lowest hover:shadow-xl border border-outline/5"
@@ -173,7 +173,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 {quote ? (
-                  <div className="mt-12 font-headline italic text-3xl text-on-primary/40">
+                  <div className="mt-8 md:mt-12 font-headline italic text-2xl md:text-3xl text-on-primary/40">
                     {quote}
                   </div>
                 ) : (
@@ -188,8 +188,8 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Heritage Section ─── */}
-      <section className="py-36 px-8 md:px-20 overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20 items-center">
+      <section className="py-20 md:py-36 px-5 md:px-20 overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -245,7 +245,7 @@ export default function AboutPage() {
       </section>
 
       {/* ─── Visionary Quote ─── */}
-      <section className="py-44 bg-surface-container px-8 text-center border-y border-outline/10 relative overflow-hidden">
+      <section className="py-24 md:py-44 bg-surface-container px-5 text-center border-y border-outline/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 pointer-events-none" />
         <motion.div
           initial="hidden"
@@ -259,30 +259,30 @@ export default function AboutPage() {
           <motion.blockquote
             variants={fadeUp}
             custom={0.1}
-            className="text-3xl md:text-5xl font-headline leading-tight text-on-surface mb-14 italic tracking-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-headline leading-tight text-on-surface mb-10 md:mb-14 italic tracking-tight"
           >
             &quot;Yoga is not about touching your toes. It is about what you learn on the
             way down, and the grace you find on the way back up.&quot;
           </motion.blockquote>
-          <motion.cite variants={fadeUp} custom={0.2} className="font-label uppercase tracking-[0.45em] text-[11px] text-secondary font-bold not-italic">
+          <motion.cite variants={fadeUp} custom={0.2} className="font-label uppercase tracking-[0.3em] md:tracking-[0.45em] text-[11px] text-secondary font-bold not-italic">
             — Prachi Yoga Center
           </motion.cite>
         </motion.div>
       </section>
 
       {/* ─── Values Section ─── */}
-      <section className="py-36 px-8 md:px-20">
-        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-20 md:py-36 px-5 md:px-20">
+        <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0}
-            className="bg-surface-container-low rounded-[3rem] p-12 md:p-20 relative overflow-hidden border border-outline/5 group hover:shadow-xl transition-shadow duration-500"
+            className="bg-surface-container-low rounded-[2rem] md:rounded-[3rem] p-7 sm:p-12 md:p-20 relative overflow-hidden border border-outline/5 group hover:shadow-xl transition-shadow duration-500"
           >
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-primary/4 rounded-full blur-3xl" />
-            <h3 className="text-3xl mb-8 font-headline text-on-surface">Environmental Stewardship</h3>
+            <h3 className="text-2xl md:text-3xl mb-6 md:mb-8 font-headline text-on-surface">Environmental Stewardship</h3>
             <p className="text-on-surface-variant leading-relaxed font-light mb-10 text-[15px]">
               Our Sansthan is committed to the Earth that sustains us. 10% of all
               memberships are dedicated to local reforestation near Rishikesh.
@@ -301,10 +301,10 @@ export default function AboutPage() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0.12}
-            className="bg-surface-container-high rounded-[3rem] p-12 md:p-20 relative overflow-hidden flex flex-col justify-center border border-outline/5 hover:shadow-xl transition-shadow duration-500"
+            className="bg-surface-container-high rounded-[2rem] md:rounded-[3rem] p-7 sm:p-12 md:p-20 relative overflow-hidden flex flex-col justify-center border border-outline/5 hover:shadow-xl transition-shadow duration-500"
           >
             <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-secondary/4 rounded-full blur-3xl" />
-            <h3 className="text-3xl mb-8 font-headline text-on-surface">A Global Community</h3>
+            <h3 className="text-2xl md:text-3xl mb-6 md:mb-8 font-headline text-on-surface">A Global Community</h3>
             <p className="text-on-surface-variant leading-relaxed font-light mb-10 text-[15px]">
               Joining us means becoming part of a worldwide family of seekers, united by
               the common language of peace.

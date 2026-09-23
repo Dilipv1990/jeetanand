@@ -97,27 +97,27 @@ const fadeUp = {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-background min-h-screen pt-36 pb-20">
+    <div className="bg-background min-h-screen pt-28 md:pt-36 pb-16 md:pb-20">
 
       {/* ─── Header ─── */}
-      <header className="px-10 max-w-7xl mx-auto mb-28 flex flex-col items-center text-center relative">
+      <header className="px-5 md:px-10 max-w-7xl mx-auto mb-16 md:mb-28 flex flex-col items-center text-center relative">
         <div className="absolute inset-0 bg-gradient-radial from-primary/4 via-transparent to-transparent rounded-full blur-3xl" />
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-          className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-6 flex items-center gap-4"
+          className="text-secondary font-label text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase mb-6 flex items-center gap-3 md:gap-4"
         >
-          <span className="inline-block h-[1px] w-8 bg-secondary" />
+          <span className="inline-block h-[1px] w-5 md:w-8 bg-secondary" />
           The Pathway to Vitality
-          <span className="inline-block h-[1px] w-8 bg-secondary" />
+          <span className="inline-block h-[1px] w-5 md:w-8 bg-secondary" />
         </motion.span>
 
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
-          className="text-5xl md:text-7xl leading-[0.9] mb-8 font-headline text-on-surface tracking-[-0.025em]"
+          className="text-[2.75rem] sm:text-5xl md:text-7xl leading-[0.95] md:leading-[0.9] mb-8 font-headline text-on-surface tracking-[-0.025em]"
         >
           Sacred{" "}
           <span className="italic text-secondary">Vijnana</span>{" "}
@@ -137,7 +137,7 @@ export default function ServicesPage() {
       </header>
 
       {/* ─── Services Grid ─── */}
-      <section className="px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+      <section className="px-4 md:px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 mb-20 md:mb-32">
 
         {/* Classical Yoga — Featured */}
         <motion.div
@@ -146,13 +146,13 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
           custom={0}
-          className="md:col-span-8 bg-surface-container-low p-10 rounded-[40px] flex flex-col md:flex-row gap-10 overflow-hidden group border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+          className="md:col-span-8 bg-surface-container-low p-6 md:p-10 rounded-[28px] md:rounded-[40px] flex flex-col md:flex-row gap-8 md:gap-10 overflow-hidden group border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
         >
           <div className="md:w-1/2 flex flex-col justify-center">
             <span className="text-primary font-label text-[10px] tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
               <Flower2 className="w-4 h-4" /> Core Discipline
             </span>
-            <h2 className="text-4xl mb-6 font-headline text-on-surface">Classical Yoga</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 font-headline text-on-surface">Classical Yoga</h2>
             <p className="text-on-surface-variant mb-8 leading-relaxed text-[15px]">
               Experience the union of breath and movement. Our traditional approach
               focuses on postural integrity and the awakening of inner prana.
@@ -169,7 +169,7 @@ export default function ServicesPage() {
               Explore Methodology <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-          <div className="md:w-1/2 h-80 md:h-auto rounded-[32px] overflow-hidden relative shadow-lg group">
+          <div className="md:w-1/2 h-64 md:h-auto rounded-[20px] md:rounded-[32px] overflow-hidden relative shadow-lg group">
             <Image
               src="/images/studio.png"
               alt="Yoga Studio"
@@ -187,9 +187,9 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
           custom={0.1}
-          className="md:col-span-4 bg-surface-container-highest p-10 rounded-[40px] flex flex-col border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+          className="md:col-span-4 bg-surface-container-highest p-6 md:p-10 rounded-[28px] md:rounded-[40px] flex flex-col border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
         >
-          <div className="mb-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+          <div className="mb-6 md:mb-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm">
             <Flower2 className="text-secondary w-7 h-7" />
           </div>
           <h2 className="text-3xl mb-5 font-headline text-on-surface">Dhyan</h2>
@@ -197,7 +197,7 @@ export default function ServicesPage() {
             The art of stillness. Cultivate a meditative mind to navigate life with
             unwavering clarity.
           </p>
-          <div className="mt-auto aspect-square rounded-[32px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative">
+          <div className="mt-auto aspect-square rounded-[20px] md:rounded-[32px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 relative">
             <Image 
               src="/images/meditation.png" 
               alt="Meditation" 
@@ -215,10 +215,10 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
           custom={0}
-          className="md:col-span-6 bg-surface-container p-10 rounded-[40px] flex flex-col justify-between group border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+          className="md:col-span-6 bg-surface-container p-6 md:p-10 rounded-[28px] md:rounded-[40px] flex flex-col justify-between group border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
         >
           <div>
-            <div className="flex justify-between items-start mb-10">
+            <div className="flex flex-wrap justify-between items-start gap-3 mb-6 md:mb-10">
               <h2 className="text-3xl max-w-[200px] font-headline text-on-surface">Marma Chikitsa</h2>
               <span className="bg-secondary/10 text-secondary text-[9px] px-4 py-1.5 rounded-full font-bold uppercase tracking-[0.2em] flex-shrink-0">
                 Ancient Healing
@@ -229,7 +229,7 @@ export default function ServicesPage() {
               biological rhythms and renews cellular vitality.
             </p>
           </div>
-          <div className="relative h-64 w-full rounded-[32px] overflow-hidden shadow-lg">
+          <div className="relative h-64 w-full rounded-[20px] md:rounded-[32px] overflow-hidden shadow-lg">
             <Image 
               src="/images/marma.png" 
               alt="Marma Healing" 
@@ -248,9 +248,9 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
           custom={0.12}
-          className="md:col-span-6 bg-surface-container-low p-10 rounded-[40px] flex flex-col justify-between border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+          className="md:col-span-6 bg-surface-container-low p-6 md:p-10 rounded-[28px] md:rounded-[40px] flex flex-col justify-between border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
         >
-          <div className="h-64 w-full rounded-[32px] overflow-hidden mb-10 relative shadow-lg group">
+          <div className="h-56 md:h-64 w-full rounded-[20px] md:rounded-[32px] overflow-hidden mb-8 md:mb-10 relative shadow-lg group">
             <Image
               src="/images/mountain.png"
               alt="Pranayama Mountain"
@@ -265,7 +265,7 @@ export default function ServicesPage() {
               Mastery of the life force through rhythmic breathing techniques. Regulate
               your nervous system and awaken dormant energy.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {["Vitality", "Focus", "Clarity"].map((tag) => (
                 <span
                   key={tag}
@@ -279,14 +279,14 @@ export default function ServicesPage() {
         </motion.div>
 
         {/* Kriya + Power Yoga Row */}
-        <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0}
-            className="bg-surface-container-high p-12 rounded-[40px] flex flex-col md:flex-row gap-8 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+            className="bg-surface-container-high p-6 md:p-12 rounded-[28px] md:rounded-[40px] flex flex-col md:flex-row gap-8 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
           >
             <div className="flex-1 flex flex-col justify-center">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
@@ -298,7 +298,7 @@ export default function ServicesPage() {
                 and enhance biological efficiency.
               </p>
             </div>
-            <div className="flex-1 h-64 rounded-[32px] overflow-hidden relative shadow-lg group">
+            <div className="flex-1 h-64 rounded-[20px] md:rounded-[32px] overflow-hidden relative shadow-lg group">
               <Image
                 src="/images/water.png"
                 alt="Kriya Water"
@@ -315,7 +315,7 @@ export default function ServicesPage() {
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
             custom={0.12}
-            className="bg-primary text-on-primary p-12 rounded-[40px] flex flex-col justify-center border border-outline/5 shadow-xl relative overflow-hidden group"
+            className="bg-ink text-white p-6 md:p-12 rounded-[28px] md:rounded-[40px] flex flex-col justify-center border border-outline/5 shadow-xl relative overflow-hidden group"
           >
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full pointer-events-none" />
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/10 rounded-full pointer-events-none" />
@@ -324,7 +324,7 @@ export default function ServicesPage() {
                 <Zap className="w-6 h-6 text-secondary-container" />
               </div>
               <h3 className="text-4xl mb-5 font-headline">Power Yoga</h3>
-              <p className="text-on-primary/80 mb-8 leading-relaxed text-[15px] font-light">
+              <p className="text-white/75 mb-8 leading-relaxed text-[15px] font-light">
                 A dynamic, high-intensity flow designed to build heat, endurance, and
                 muscular strength without losing spiritual focus.
               </p>
@@ -346,13 +346,13 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
           custom={0}
-          className="scroll-mt-32 md:col-span-12 bg-surface-container-low p-10 md:p-14 rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-12 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+          className="scroll-mt-32 md:col-span-12 bg-surface-container-low p-6 md:p-14 rounded-[28px] md:rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
         >
           <div className="flex flex-col justify-center">
             <span className="text-primary font-label text-[10px] tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
               <Smile className="w-4 h-4" /> For Young Seekers
             </span>
-            <h2 className="text-4xl mb-6 font-headline text-on-surface">Kids Yoga Program</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 font-headline text-on-surface">Kids Yoga Program</h2>
             <div className="flex flex-wrap gap-3 mb-10">
               {["Fun", "Fitness", "Focus", "Confidence", "Certificate"].map((tag) => (
                 <span
@@ -394,12 +394,12 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── Class Catalog ─── */}
-      <section id="classes" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+      <section id="classes" className="scroll-mt-32 px-4 md:px-6 max-w-7xl mx-auto mb-20 md:mb-32">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
             Our Classes
@@ -409,7 +409,7 @@ export default function ServicesPage() {
           </motion.h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {classCatalog.map(({ title, icon: Icon, items }, i) => (
             <motion.div
               key={title}
@@ -418,12 +418,12 @@ export default function ServicesPage() {
               viewport={{ once: true, margin: "-60px" }}
               variants={fadeUp}
               custom={(i % 2) * 0.12}
-              className="bg-surface-container-low p-10 rounded-[40px] border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+              className="bg-surface-container-low p-6 md:p-10 rounded-[28px] md:rounded-[40px] border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <Icon className="text-primary w-6 h-6" />
               </div>
-              <h3 className="text-3xl mb-6 font-headline text-on-surface">{title}</h3>
+              <h3 className="text-2xl md:text-3xl mb-6 font-headline text-on-surface">{title}</h3>
               <ul className="space-y-3">
                 {items.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[14px] text-on-surface font-medium">
@@ -438,22 +438,22 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── Home & Personal Classes ─── */}
-      <section id="home-classes" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+      <section id="home-classes" className="scroll-mt-32 px-4 md:px-6 max-w-7xl mx-auto mb-20 md:mb-32">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
           custom={0}
-          className="bg-primary text-on-primary p-10 md:p-14 rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-12 shadow-xl relative overflow-hidden"
+          className="bg-ink text-white p-6 md:p-14 rounded-[28px] md:rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 shadow-xl relative overflow-hidden"
         >
           <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full pointer-events-none" />
           <div className="relative z-10 flex flex-col justify-center">
             <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
               <House className="w-6 h-6 text-secondary-container" />
             </div>
-            <h2 className="text-4xl mb-5 font-headline">Home &amp; Personal Yoga Classes</h2>
-            <p className="text-on-primary/80 leading-relaxed text-[15px] font-light">
+            <h2 className="text-3xl md:text-4xl mb-5 font-headline">Home &amp; Personal Yoga Classes</h2>
+            <p className="text-white/75 leading-relaxed text-[15px] font-light">
               Practice in the comfort of your own home with a dedicated instructor, one-to-one
               or with your family and friends.
             </p>
@@ -470,12 +470,12 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── Panchakarma & Ayurveda Retreats ─── */}
-      <section id="retreats" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+      <section id="retreats" className="scroll-mt-32 px-4 md:px-6 max-w-7xl mx-auto mb-20 md:mb-32">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
             Retreats
@@ -485,7 +485,7 @@ export default function ServicesPage() {
           </motion.h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {retreats.map((retreat, i) => (
             <motion.div
               key={retreat}
@@ -494,24 +494,24 @@ export default function ServicesPage() {
               viewport={{ once: true, margin: "-60px" }}
               variants={fadeUp}
               custom={(i % 2) * 0.12}
-              className="bg-surface-container p-8 rounded-[32px] flex items-center gap-5 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+              className="bg-surface-container p-5 md:p-8 rounded-[20px] md:rounded-[32px] flex items-center gap-4 md:gap-5 border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
                 <Leaf className="text-secondary w-6 h-6" />
               </div>
-              <h3 className="text-xl font-headline text-on-surface">{retreat}</h3>
+              <h3 className="text-lg md:text-xl font-headline text-on-surface">{retreat}</h3>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ─── Certifications ─── */}
-      <section id="certifications" className="scroll-mt-32 px-6 max-w-7xl mx-auto mb-32">
+      <section id="certifications" className="scroll-mt-32 px-4 md:px-6 max-w-7xl mx-auto mb-20 md:mb-32">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <motion.span variants={fadeUp} custom={0} className="text-secondary font-label text-[10px] tracking-[0.4em] uppercase mb-5 block">
             Certifications
@@ -524,7 +524,7 @@ export default function ServicesPage() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
           {certifications.map(({ name, detail }, i) => (
             <motion.div
               key={name}
@@ -533,19 +533,19 @@ export default function ServicesPage() {
               viewport={{ once: true, margin: "-60px" }}
               variants={fadeUp}
               custom={(i % 3) * 0.1}
-              className="bg-surface-container-low p-8 rounded-[32px] flex flex-col items-center text-center border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
+              className="bg-surface-container-low px-3 py-6 md:p-8 rounded-[20px] md:rounded-[32px] flex flex-col items-center text-center border border-outline/5 shadow-sm hover:shadow-xl transition-all duration-500"
             >
               <GraduationCap className="text-primary w-8 h-8 mb-5" />
-              <h3 className="text-2xl font-headline text-on-surface mb-2">{name}</h3>
-              <span className="text-[9px] tracking-[0.25em] font-label uppercase text-secondary">{detail}</span>
+              <h3 className="text-xl md:text-2xl font-headline text-on-surface mb-2">{name}</h3>
+              <span className="text-[9px] tracking-[0.15em] md:tracking-[0.25em] font-label uppercase text-secondary">{detail}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* ─── Educational Deep Dive ─── */}
-      <section className="max-w-5xl mx-auto px-10 mb-32">
-        <div className="grid md:grid-cols-2 gap-20 items-center">
+      <section className="max-w-5xl mx-auto px-5 md:px-10 mb-20 md:mb-32">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -554,7 +554,7 @@ export default function ServicesPage() {
             className="relative"
           >
             <div className="absolute -top-12 -left-12 w-48 h-48 bg-secondary/5 rounded-full blur-3xl" />
-            <div className="relative h-[520px] w-full rounded-[40px] overflow-hidden shadow-2xl z-10 group">
+            <div className="relative h-[360px] md:h-[520px] w-full rounded-[28px] md:rounded-[40px] overflow-hidden shadow-2xl z-10 group">
               <Image
                 src="/images/manuscript.png"
                 alt="Ancient Manuscript"
@@ -571,7 +571,7 @@ export default function ServicesPage() {
             viewport={{ once: true, margin: "-80px" }}
             className="flex flex-col gap-8"
           >
-            <motion.h2 variants={fadeUp} custom={0} className="text-4xl font-headline text-on-surface tracking-tight">
+            <motion.h2 variants={fadeUp} custom={0} className="text-3xl md:text-4xl font-headline text-on-surface tracking-tight">
               The Science of{" "}
               <span className="italic text-secondary">Veda-Yoga</span>
             </motion.h2>
@@ -609,23 +609,23 @@ export default function ServicesPage() {
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
           custom={0}
-          className="bg-surface-container-low rounded-[60px] p-20 text-center relative overflow-hidden shadow-sm border border-outline/5"
+          className="bg-surface-container-low rounded-[32px] md:rounded-[60px] px-6 py-14 md:p-20 text-center relative overflow-hidden shadow-sm border border-outline/5"
         >
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/4 rounded-full -mr-48 -mt-48 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-secondary/3 rounded-full -ml-36 -mb-36 blur-3xl" />
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl mb-8 font-headline text-on-surface tracking-tight">
+            <h2 className="text-3xl md:text-5xl mb-6 md:mb-8 font-headline text-on-surface tracking-tight">
               Ready to begin your journey?
             </h2>
-            <p className="text-on-surface-variant max-w-xl mx-auto mb-14 leading-relaxed font-light">
+            <p className="text-on-surface-variant max-w-xl mx-auto mb-10 md:mb-14 leading-relaxed font-light">
               Consult with our Acharyas to find the practice that resonates with your
               current state of being.
             </p>
             <div className="flex flex-col md:flex-row gap-5 justify-center">
-              <button className="btn-shine bg-primary text-on-primary px-12 py-5 rounded-full font-label tracking-[0.2em] uppercase text-[11px] hover:scale-[1.04] transition-all duration-500 shadow-xl shadow-primary/25">
+              <button className="btn-shine bg-primary text-on-primary px-8 md:px-12 py-4 md:py-5 rounded-full font-label tracking-[0.2em] uppercase text-[11px] hover:scale-[1.04] transition-all duration-500 shadow-xl shadow-primary/25">
                 Book a Consultation
               </button>
-              <button className="bg-transparent border border-outline/40 px-12 py-5 rounded-full font-label tracking-[0.2em] uppercase text-[11px] hover:bg-surface-container-high hover:border-outline transition-all duration-300">
+              <button className="bg-transparent border border-outline/40 px-8 md:px-12 py-4 md:py-5 rounded-full font-label tracking-[0.2em] uppercase text-[11px] hover:bg-surface-container-high hover:border-outline transition-all duration-300">
                 View Full Schedule
               </button>
             </div>
