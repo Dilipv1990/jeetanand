@@ -88,7 +88,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <button
+          <Link
+            href="/#free-trial"
             className={`hidden md:block btn-shine px-7 py-2.5 rounded-full font-label text-[11px] font-bold uppercase tracking-widest transition-all duration-500 shadow-xl
               ${onDark
                 ? "bg-white text-ink hover:scale-[1.05] shadow-ink/30"
@@ -96,8 +97,8 @@ export default function Navbar() {
               }
             `}
           >
-            Join Now
-          </button>
+            Free Trial
+          </Link>
 
           {/* Mobile menu toggle */}
           <button
