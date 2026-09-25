@@ -30,17 +30,31 @@ const rise = (delay: number) => ({
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-white">
-      {/* Sunrise glow over a night sky */}
+    <section className="relative isolate overflow-hidden bg-ink text-white lg:min-h-[100svh] flex flex-col">
+      {/* Sunset yoga at Salar de Uyuni (Farsai C., Unsplash, CC0) with scrims for legible type */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.09)_1px,transparent_1px)] [background-size:26px_26px] [mask-image:linear-gradient(to_bottom,black,transparent_70%)]" />
-        <div className="absolute left-1/2 -translate-x-1/2 -bottom-[55%] w-[170vw] max-w-[1500px] aspect-square rounded-full bg-[radial-gradient(circle,rgba(255,150,40,0.6)_0%,rgba(255,61,127,0.32)_32%,rgba(123,77,255,0.12)_52%,transparent_68%)] motion-safe:animate-sunrise" />
-        <div className="absolute -top-48 -left-48 w-[560px] h-[560px] rounded-full bg-secondary/40 blur-[150px]" />
-        <div className="absolute -top-32 -right-40 w-[520px] h-[520px] rounded-full bg-tertiary/50 blur-[150px]" />
+        <motion.div
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.4, ease }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/images/hero_sunset_yoga.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[52%_60%]"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,10,18,0.78)_0%,rgba(14,10,18,0.62)_35%,rgba(14,10,18,0.3)_55%,rgba(14,10,18,0)_72%)] max-lg:bg-[linear-gradient(180deg,rgba(14,10,18,0.55)_0%,rgba(14,10,18,0.35)_45%,rgba(14,10,18,0.6)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/45 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/50 to-transparent" />
       </div>
 
       {/* DOM order (copy → form → proof) puts the form right after the pitch on phones */}
-      <div className="max-w-screen-2xl mx-auto px-5 md:px-16 pt-28 md:pt-36 pb-14 md:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 items-start">
+      <div className="flex-1 w-full max-w-screen-2xl mx-auto px-5 md:px-16 pt-28 md:pt-36 pb-14 md:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 items-start">
         <div className="lg:col-span-7 lg:pt-6">
           <motion.span
             {...rise(0)}
@@ -55,12 +69,12 @@ export default function Hero() {
             className="font-headline font-light tracking-[-0.03em] leading-[1.02] text-[2.75rem] sm:text-6xl xl:text-7xl mb-6"
           >
             Authentic yoga for{" "}
-            <span className="italic text-sunrise pr-[0.08em]">every age &amp; every body</span>
+            <span className="italic text-sunrise pr-[0.08em] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">every age &amp; every body</span>
           </motion.h1>
 
           <motion.p
             {...rise(0.2)}
-            className="text-base md:text-lg text-white/70 max-w-[540px] leading-relaxed font-light"
+            className="text-base md:text-lg text-white/85 max-w-[540px] leading-relaxed font-light"
           >
             Group, personal and at-home classes, therapeutic care, Ayurveda retreats and
             certified teacher training, guided by experienced teachers.
@@ -114,7 +128,7 @@ export default function Hero() {
           <div className="flex items-center gap-4 mb-7">
             <div className="flex -space-x-3">
               {faces.map((src) => (
-                <span key={src} className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-ink">
+                <span key={src} className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/80">
                   <Image src={src} alt="" fill className="object-cover" sizes="40px" />
                 </span>
               ))}
@@ -125,14 +139,14 @@ export default function Hero() {
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
               </div>
-              <p className="text-[13px] text-white/65 mt-1">Loved by students across India</p>
+              <p className="text-[13px] text-white/80 mt-1">Loved by students across India</p>
             </div>
           </div>
           <dl className="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 max-w-xl">
             {highlights.map(([title, detail]) => (
               <div key={title}>
                 <dt className="font-headline text-xl md:text-3xl text-white">{title}</dt>
-                <dd className="text-[11px] md:text-[13px] text-white/55 mt-1 leading-snug">{detail}</dd>
+                <dd className="text-[11px] md:text-[13px] text-white/75 mt-1 leading-snug">{detail}</dd>
               </div>
             ))}
           </dl>
@@ -140,7 +154,7 @@ export default function Hero() {
       </div>
 
       {/* Practice marquee */}
-      <div className="relative border-t border-white/10 bg-white/[0.03] py-4 md:py-5 overflow-hidden">
+      <div className="relative border-t border-white/15 bg-black/25 backdrop-blur-md py-4 md:py-5 overflow-hidden">
         <div className="flex w-max motion-safe:animate-marquee">
           {[...practices, ...practices].map((p, i) => (
             <span
