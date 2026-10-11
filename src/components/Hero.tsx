@@ -10,14 +10,14 @@ import { whatsappHref } from "@/lib/contact";
 const ease = cubicBezier(0.22, 1, 0.36, 1);
 
 const practices = [
-  "Hatha", "Vinyasa", "Ashtanga", "Pranayama", "Meditation", "Yin",
+  "Yoga at Home", "Senior Citizen Yoga", "Hatha", "Vinyasa", "Ashtanga", "Pranayama", "Meditation", "Yin",
   "Ayurveda", "Panchakarma", "Kids Yoga", "Teacher Training",
 ];
 
 const highlights = [
-  ["5,000+", "Students taught"],
-  ["All ages", "Kids to seniors"],
-  ["200–500 hr", "Teacher training"],
+  ["Any time", "Morning to evening, your slot"],
+  ["Any place", "Home, studio or online"],
+  ["Seniors", "Safe, gentle, doctor-aware"],
 ];
 
 const faces = ["/images/hero_woman_final.png", "/images/meditation.png", "/images/hero_meditation.png", "/images/swami.png"];
@@ -61,23 +61,24 @@ export default function Hero() {
             className="inline-flex items-center gap-3 mb-7 px-4 py-2 rounded-full border border-white/15 bg-white/5 backdrop-blur text-[10px] tracking-[0.3em] uppercase text-white/80 font-bold"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-secondary-container shadow-[0_0_12px_#ffb627]" />
-            Yoga · Ayurveda · Teacher Training
+            Yoga at Home · Noida
           </motion.span>
 
           <motion.h1
             {...rise(0.1)}
             className="font-headline font-light tracking-[-0.03em] leading-[1.02] text-[2.75rem] sm:text-6xl xl:text-7xl mb-6"
           >
-            Authentic yoga for{" "}
-            <span className="italic text-sunrise pr-[0.08em] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">every age &amp; every body</span>
+            Yoga at home,{" "}
+            <span className="italic text-sunrise pr-[0.08em] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">any time, anywhere</span>
           </motion.h1>
 
           <motion.p
             {...rise(0.2)}
             className="text-base md:text-lg text-white/85 max-w-[540px] leading-relaxed font-light"
           >
-            Group, personal and at-home classes, therapeutic care, Ayurveda retreats and
-            certified teacher training, guided by experienced teachers.
+            Take your yoga class whenever and wherever it suits you: in your living room,
+            at our Sector 116 studio or live online. Gentle, expert care for senior
+            citizens and every member of the family.
           </motion.p>
 
           <motion.div {...rise(0.3)} className="hidden lg:flex flex-wrap gap-3 items-center mt-9">
@@ -139,7 +140,7 @@ export default function Hero() {
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
               </div>
-              <p className="text-[13px] text-white/80 mt-1">Loved by students across India</p>
+              <p className="text-[13px] text-white/80 mt-1">Loved by families across Noida</p>
             </div>
           </div>
           <dl className="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 max-w-xl">

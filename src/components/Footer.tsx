@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Mail, Phone, Sprout, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, Sprout, ArrowUpRight, MapPin, TrainFront } from "lucide-react";
+import { ADDRESS_FULL, NEAREST_METRO, mapsHref } from "@/lib/contact";
 
 const links = [
   {
@@ -48,9 +49,17 @@ export default function Footer() {
                 Prachi Yoga Center
               </h2>
             </div>
-            <p className="text-[14px] text-on-surface-variant leading-relaxed font-light mb-8">
+            <p className="text-[14px] text-on-surface-variant leading-relaxed font-light mb-6">
               Crafting the pause between breaths through authentic practices in the
-              heart of NCR. Established 1994.
+              heart of Noida. Yoga at home, any time, anywhere.
+            </p>
+            <a href={mapsHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-[13px] text-on-surface mb-3 hover:text-primary transition-colors">
+              <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+              {ADDRESS_FULL}
+            </a>
+            <p className="flex items-start gap-3 text-[13px] text-on-surface-variant mb-8">
+              <TrainFront className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+              Nearest metro: {NEAREST_METRO.join(" & ")}
             </p>
             {/* Contact icons */}
             <div className="flex gap-3">

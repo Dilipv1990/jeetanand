@@ -2,144 +2,158 @@
 
 import Image from "next/image";
 import { motion, cubicBezier } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, Clock, User } from "lucide-react";
+import { ArrowUpRight, CalendarClock, ExternalLink, House, MapPin, Monitor, Moon, Sun, Sunrise, Sunset, TrainFront } from "lucide-react";
 import { useState } from "react";
+import { ADDRESS_CITY, ADDRESS_LINE, NEAREST_METRO, mapsHref, whatsappHref } from "@/lib/contact";
 
-const locations = ["All Sanctuaries", "Rishikesh", "New Delhi", "Mumbai", "Bangalore", "Pune"];
+const ease = cubicBezier(0.22, 1, 0.36, 1);
 
-const schedule = [
-  { session: "Pranayama Mastery", type: "Meditation", level: "Advanced", loc: "Mumbai", time: "08:00 AM" },
-  { session: "Hatha Vinyasa Flow", type: "Asana", level: "All Levels", loc: "New Delhi", time: "10:30 AM" },
-  { session: "Restorative Yoga", type: "Gentle", level: "Healing", loc: "Bangalore", time: "05:00 PM" },
-  { session: "Kriya Cleansing", type: "Kriya", level: "Traditional", loc: "Pune", time: "06:00 AM" },
+const slots = [
+  { label: "Early morning", hint: "5 – 8 AM", icon: Sunrise },
+  { label: "Morning", hint: "8 – 11 AM", icon: Sun },
+  { label: "Evening", hint: "4 – 7 PM", icon: Sunset },
+  { label: "Late evening", hint: "7 – 9 PM", icon: Moon },
 ];
+
+const places = [
+  { label: "At my home", hint: "Anywhere in Noida", icon: House },
+  { label: "At the studio", hint: "Sector 116, Noida", icon: MapPin },
+  { label: "Online", hint: "Live video class", icon: Monitor },
+];
+
+const classTypes = ["General wellness", "Senior citizen yoga", "Therapeutic yoga", "Weight loss", "Kids yoga", "Meditation & pranayama"];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.85, delay, ease: cubicBezier(0.22, 1, 0.36, 1) },
+    transition: { duration: 0.85, delay, ease },
   }),
 };
 
-const typeBadgeColors: Record<string, string> = {
-  Meditation: "bg-primary/10 text-primary",
-  Asana: "bg-secondary/10 text-secondary",
-  Gentle: "bg-tertiary/10 text-tertiary",
-  Kriya: "bg-primary/10 text-primary",
-};
+function OptionCard({ active, onClick, icon: Icon, label, hint }: { active: boolean; onClick: () => void; icon: typeof Sun; label: string; hint: string }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`flex items-center gap-4 p-4 rounded-2xl border text-left transition-all duration-300 ${
+        active
+          ? "bg-primary border-primary text-white shadow-lg shadow-primary/25"
+          : "bg-background border-outline/15 text-on-surface hover:border-primary/40"
+      }`}
+    >
+      <span className={`w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center ${active ? "bg-white/20" : "bg-primary/10 text-primary"}`}>
+        <Icon className="w-5 h-5" />
+      </span>
+      <span>
+        <span className="block font-semibold text-[15px] leading-tight">{label}</span>
+        <span className={`block text-[12px] mt-0.5 ${active ? "text-white/80" : "text-on-surface-variant"}`}>{hint}</span>
+      </span>
+    </button>
+  );
+}
 
 export default function SchedulePage() {
-  const [activeLoc, setActiveLoc] = useState("All Sanctuaries");
+  const [slot, setSlot] = useState(slots[0].label);
+  const [place, setPlace] = useState(places[0].label);
+  const [classType, setClassType] = useState(classTypes[0]);
+
+  function book() {
+    const message = `Hi, I'd like to book a yoga class.\nClass: ${classType}\nPreferred time: ${slot}\nWhere: ${place}`;
+    window.open(whatsappHref(message), "_blank", "noopener");
+  }
 
   return (
     <div className="bg-background min-h-screen pt-28 md:pt-36 pb-16 md:pb-20">
 
       {/* ─── Hero Header ─── */}
-      <header className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-10 md:mb-20 relative">
-        <div className="absolute inset-0 bg-gradient-radial from-primary/3 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="max-w-3xl relative z-10">
+      <header className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-10 md:mb-16">
+        <div className="max-w-3xl">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: cubicBezier(0.22, 1, 0.36, 1) }}
+            transition={{ duration: 0.8, ease }}
             className="font-label text-[10px] uppercase tracking-[0.4em] text-secondary mb-5 flex items-center gap-4"
           >
             <span className="inline-block h-[1px] w-10 bg-secondary" />
-            Timeless Practice
+            Your time, your place
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1, ease: cubicBezier(0.22, 1, 0.36, 1) }}
+            transition={{ delay: 0.2, duration: 1, ease }}
             className="font-headline text-[2.75rem] sm:text-5xl md:text-7xl text-on-surface leading-[0.95] md:leading-[0.9] mb-8 tracking-[-0.025em]"
           >
-            Guided Journeys{" "}
-            <span className="italic text-primary">&amp; Sacred Spaces</span>
+            Yoga class{" "}
+            <span className="italic text-primary">any time, anywhere</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.9, ease: cubicBezier(0.22, 1, 0.36, 1) }}
+            transition={{ delay: 0.4, duration: 0.9, ease }}
             className="text-on-surface-variant text-lg leading-relaxed font-light max-w-2xl"
           >
-            Join our collective breath across five sanctuary locations. Each session is a
-            step toward inner stillness, led by practitioners dedicated to the ancient
-            lineage of Prachi Yoga Center.
+            No fixed batches to chase. Choose the time that suits you and where you&apos;d
+            like to practise, and we&apos;ll arrange a teacher for you.
           </motion.p>
         </div>
       </header>
 
-      {/* ─── Location Filter ─── */}
-      <section className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-8 md:mb-14 overflow-x-auto no-scrollbar">
-        <div className="flex gap-3 pb-4 min-w-max">
-          {locations.map((loc) => (
-            <button
-              key={loc}
-              onClick={() => setActiveLoc(loc)}
-              className={`px-6 py-2.5 rounded-full text-[11px] font-bold tracking-[0.1em] uppercase transition-all duration-300 ${
-                activeLoc === loc
-                  ? "bg-primary text-on-primary shadow-lg shadow-primary/25 scale-[1.04]"
-                  : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface"
-              }`}
-            >
-              {loc}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── Today's Highlight ─── */}
+      {/* ─── Pick your slot ─── */}
       <section className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-14 md:mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUp}
-            custom={0}
-            className="lg:col-span-8 bg-surface-container rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 flex flex-col md:flex-row gap-8 md:gap-10 overflow-hidden relative border border-outline/5 shadow-sm"
+            className="lg:col-span-8 bg-surface-container-lowest rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 border border-outline/10 shadow-sm"
           >
-            <div className="flex-1 flex flex-col justify-between z-10">
-              <div>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary/10 text-secondary text-[9px] font-bold uppercase tracking-[0.25em] rounded-full mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-                  Live Now · Rishikesh
-                </span>
-                <h2 className="font-headline text-3xl md:text-4xl text-on-surface mb-4 tracking-tight">
-                  Surya Namaskar &amp; Deep Flow
-                </h2>
-                <p className="text-on-surface-variant font-light mb-8 md:mb-10 max-w-sm leading-relaxed">
-                  A foundational morning practice focusing on the breath-movement
-                  synchronization. Experience the sunrise by the Ganges.
-                </p>
-              </div>
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
-                    <Clock className="w-3 h-3" /> Time
-                  </span>
-                  <span className="text-lg md:text-xl font-medium text-primary">06:00 — 07:30</span>
-                </div>
-                <div className="w-px h-10 bg-outline-variant" />
-                <div className="flex flex-col gap-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-on-surface-variant font-bold flex items-center gap-1.5">
-                    <User className="w-3 h-3" /> Guide
-                  </span>
-                  <span className="text-lg md:text-xl font-medium text-primary">Acharya Ved</span>
-                </div>
-              </div>
+            <h2 className="font-headline text-3xl text-on-surface mb-2 tracking-tight">Book your session</h2>
+            <p className="text-on-surface-variant font-light text-[14px] mb-8">Three quick choices, then confirm on WhatsApp.</p>
+
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-3">1 · Preferred time</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {slots.map((s) => (
+                <OptionCard key={s.label} active={slot === s.label} onClick={() => setSlot(s.label)} icon={s.icon} label={s.label} hint={s.hint} />
+              ))}
             </div>
-            <div className="flex-1 relative min-h-[240px] md:min-h-full rounded-2xl overflow-hidden shadow-xl rotate-1 group">
-              <Image
-                src="/images/hero.png"
-                alt="Yoga practice"
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
+
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-3">2 · Where</div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+              {places.map((p) => (
+                <OptionCard key={p.label} active={place === p.label} onClick={() => setPlace(p.label)} icon={p.icon} label={p.label} hint={p.hint} />
+              ))}
             </div>
+
+            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-3">3 · Class</div>
+            <div className="flex flex-wrap gap-2 mb-10">
+              {classTypes.map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setClassType(c)}
+                  aria-pressed={classType === c}
+                  className={`px-5 py-2.5 rounded-full text-[13px] font-medium transition-all duration-300 ${
+                    classType === c
+                      ? "bg-ink text-white"
+                      : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={book}
+              className="btn-sunrise btn-shine group w-full sm:w-auto inline-flex items-center justify-center gap-3 text-white h-14 px-10 rounded-full font-bold text-[11px] uppercase tracking-[0.2em] shadow-xl shadow-secondary/30"
+            >
+              Book on WhatsApp
+              <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-500" />
+            </button>
           </motion.div>
 
           <motion.div
@@ -150,228 +164,78 @@ export default function SchedulePage() {
             custom={0.1}
             className="lg:col-span-4 flex flex-col gap-5"
           >
-            <div className="bg-surface-container-low p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] flex-1 border border-outline/5 shadow-sm">
-              <h3 className="font-headline text-xl text-on-surface mb-8">Our Centers</h3>
-              <div className="space-y-5">
-                {["Himalayan Retreat", "Urban Sanctuary", "Oceanic Studio", "Garden Of Peace"].map(
-                  (center) => (
-                    <div key={center} className="group/item flex justify-between items-center cursor-pointer py-2 border-b border-outline/8 last:border-0">
-                      <div>
-                        <h4 className="font-medium text-[14px] text-on-surface group-hover/item:text-secondary transition-colors duration-200">
-                          {center}
-                        </h4>
-                        <p className="text-[11px] text-on-surface-variant mt-0.5">
-                          View location details
-                        </p>
-                      </div>
-                      <ChevronRight className="w-4 h-4 text-outline-variant group-hover/item:text-secondary group-hover/item:translate-x-1 transition-all duration-200 flex-shrink-0" />
-                    </div>
-                  )
-                )}
+            {/* TODO: replace with the weekly timetable once the centre shares it. */}
+            <div className="bg-ink text-white rounded-[2rem] md:rounded-[2.5rem] p-7 md:p-8 relative overflow-hidden">
+              <div aria-hidden className="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-[radial-gradient(circle,rgba(255,182,39,0.3),transparent_65%)]" />
+              <CalendarClock className="relative w-7 h-7 text-secondary-container mb-5" />
+              <h3 className="relative font-headline text-2xl mb-2">Weekly timetable</h3>
+              <p className="relative text-[14px] text-white/75 font-light leading-relaxed">
+                Our fixed group batches will be listed here soon. Until then, every class is
+                booked around your time.
+              </p>
+            </div>
+
+            <div className="bg-surface-container-low rounded-[2rem] md:rounded-[2.5rem] p-7 md:p-8 border border-outline/10 flex-1">
+              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary mb-2">Studio</div>
+              <h3 className="font-headline text-2xl text-on-surface leading-tight">{ADDRESS_LINE}</h3>
+              <p className="text-on-surface-variant font-light text-[14px] mt-1">{ADDRESS_CITY}</p>
+              <div className="flex items-center gap-2 mt-5 mb-3 text-[10px] font-bold uppercase tracking-[0.25em] text-on-surface-variant">
+                <TrainFront className="w-4 h-4 text-primary" /> Nearest metro
               </div>
+              <div className="flex flex-wrap gap-2">
+                {NEAREST_METRO.map((m) => (
+                  <span key={m} className="px-3.5 py-1.5 rounded-full bg-background text-[12px] text-on-surface font-medium">{m}</span>
+                ))}
+              </div>
+              <a
+                href={mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-[0.2em] hover:gap-3 transition-all duration-300"
+              >
+                Get Directions <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ─── Weekly Schedule Table ─── */}
+      {/* ─── Senior care banner ─── */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
         variants={fadeUp}
-        custom={0}
-        className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-14 md:mb-20"
-      >
-        <div className="bg-surface-container-lowest p-5 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-surface-container-high shadow-sm">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-6">
-            <div>
-              <h3 className="font-headline text-3xl text-on-surface mb-2 tracking-tight">
-                Weekly Schedule
-              </h3>
-              <p className="text-on-surface-variant font-light text-[14px]">
-                Select a day to view available sessions.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button className="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300">
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button className="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300">
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile: session cards */}
-          <ul className="md:hidden flex flex-col gap-3">
-            {schedule.map((row, idx) => (
-              <li
-                key={idx}
-                className="flex items-center gap-4 p-4 rounded-2xl bg-surface-container-low border border-outline/8"
-              >
-                <div className="w-16 flex-shrink-0 text-center border-r border-outline/15 pr-3">
-                  <div className="font-headline text-xl text-primary leading-none">{row.time.split(" ")[0]}</div>
-                  <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant mt-1">
-                    {row.time.split(" ")[1]}
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-on-surface text-[15px] leading-snug">{row.session}</div>
-                  <div className="flex flex-wrap items-center gap-2 mt-2">
-                    <span
-                      className={`text-[9px] px-2.5 py-1 rounded-full font-bold uppercase tracking-[0.12em] ${
-                        typeBadgeColors[row.type] ?? "bg-surface-container text-on-surface-variant"
-                      }`}
-                    >
-                      {row.type}
-                    </span>
-                    <span className="text-[12px] text-on-surface-variant">{row.loc} · {row.level}</span>
-                  </div>
-                </div>
-                <button className="flex-shrink-0 bg-primary text-on-primary font-bold text-[10px] tracking-[0.15em] uppercase px-4 h-11 rounded-full">
-                  Book
-                </button>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[600px]">
-              <thead>
-                <tr className="border-b border-surface-container-high">
-                  {["Session", "Type", "Sanctuary", "Time", ""].map((col) => (
-                    <th
-                      key={col}
-                      className="py-5 px-4 font-headline italic text-lg text-primary font-normal tracking-tight"
-                    >
-                      {col}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {schedule.map((row, idx) => (
-                  <tr
-                    key={idx}
-                    className="group hover:bg-surface-container-low transition-colors duration-200 border-b border-surface-container last:border-0"
-                  >
-                    <td className="py-7 px-4">
-                      <div className="font-semibold text-on-surface text-[14px]">{row.session}</div>
-                      <div className="text-[10px] text-on-surface-variant mt-1 uppercase tracking-[0.2em] font-bold">
-                        {row.level}
-                      </div>
-                    </td>
-                    <td className="py-7 px-4">
-                      <span
-                        className={`text-[10px] px-3.5 py-1.5 rounded-full font-bold uppercase tracking-[0.15em] ${
-                          typeBadgeColors[row.type] ?? "bg-surface-container text-on-surface-variant"
-                        }`}
-                      >
-                        {row.type}
-                      </span>
-                    </td>
-                    <td className="py-7 px-4 text-on-surface text-[14px]">{row.loc}</td>
-                    <td className="py-7 px-4 text-on-surface font-medium text-[14px]">{row.time}</td>
-                    <td className="py-7 px-4 text-right">
-                      <button className="btn-shine bg-primary/8 text-primary font-bold text-[10px] tracking-[0.2em] uppercase px-5 py-2 rounded-full hover:bg-primary hover:text-on-primary transition-all duration-300">
-                        Book
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ─── Visual Accent Banner ─── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        variants={fadeUp}
-        custom={0}
-        className="px-4 md:px-10 max-w-screen-2xl mx-auto mb-16 md:mb-24"
+        className="px-4 md:px-10 max-w-screen-2xl mx-auto"
       >
         <div className="h-80 md:h-72 relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-outline/5 group">
           <Image
-            src="/images/schedule_hero.png"
-            alt="Meditation Space"
+            src="/images/senior_namaste.jpg"
+            alt="Smiling elderly woman greeting with folded hands"
             fill
-            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="object-cover object-[50%_30%] transition-transform duration-1000 group-hover:scale-105"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/25 backdrop-blur-[3px] flex items-center justify-center">
+          <div className="absolute inset-0 bg-primary/35 backdrop-blur-[3px] flex items-center justify-center">
             <div className="text-center px-6">
-              <h4 className="font-headline text-3xl md:text-4xl text-white mb-3 tracking-tight">
-                Can&apos;t join in person?
-              </h4>
-              <p className="text-white/85 font-light mb-8">
-                Explore our virtual sanctuary for guided home sessions.
+              <h2 className="font-headline text-3xl md:text-4xl text-white mb-3 tracking-tight">
+                Booking for your parents?
+              </h2>
+              <p className="text-white/90 font-light mb-8">
+                Gentle senior sessions at home, at the hour they&apos;re most comfortable.
               </p>
-              <button className="btn-shine px-10 py-3.5 bg-white text-primary rounded-full font-bold text-[10px] uppercase tracking-[0.25em] hover:scale-105 transition-transform duration-300 shadow-lg">
-                Explore Online
-              </button>
+              <a
+                href={whatsappHref("Hi, I'd like to book a senior citizen yoga session at home for my parents.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-shine inline-block px-10 py-3.5 bg-white text-primary rounded-full font-bold text-[10px] uppercase tracking-[0.25em] hover:scale-105 transition-transform duration-300 shadow-lg"
+              >
+                Book a senior session
+              </a>
             </div>
           </div>
         </div>
       </motion.section>
-
-      {/* ─── Location Cards ─── */}
-      <section className="px-4 md:px-10 max-w-screen-2xl mx-auto">
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          custom={0}
-          className="font-headline text-3xl md:text-4xl text-on-surface mb-10 md:mb-16 tracking-tight"
-        >
-          Visit the Sanctuary
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {[
-            { name: "Himalayan Retreat", addr: "Shakti Lane, Rishikesh", img: "/images/ashram.png" },
-            { name: "Urban Sanctuary", addr: "GK II, New Delhi", img: "/images/studio.png" },
-            { name: "Oceanic Studio", addr: "Beach Road, Mumbai", img: "/images/meditation.png" },
-          ].map((loc, idx) => (
-            <motion.div
-              key={idx}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-40px" }}
-              variants={fadeUp}
-              custom={idx * 0.1}
-              className="group cursor-pointer"
-            >
-              <div className="h-52 rounded-[2rem] overflow-hidden mb-6 relative shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                <Image
-                  src={loc.img}
-                  alt={loc.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-stone-900/0 transition-colors duration-500" />
-                {idx === 0 && (
-                  <span className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] text-primary shadow-sm">
-                    Headquarters
-                  </span>
-                )}
-              </div>
-              <h3 className="font-headline text-2xl mb-2 text-on-surface group-hover:text-primary transition-colors duration-300">
-                {loc.name}
-              </h3>
-              <p className="text-on-surface-variant font-light mb-5 text-[14px]">{loc.addr}</p>
-              <span className="inline-flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-[0.2em] group-hover:gap-3 transition-all duration-300">
-                Get Directions <ExternalLink className="w-3.5 h-3.5" />
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }
