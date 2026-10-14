@@ -15,6 +15,7 @@ const slots = [
   { label: "Late evening", hint: "7 – 9 PM", icon: Moon },
 ];
 
+
 const places = [
   { label: "At my home", hint: "Anywhere in Noida", icon: House },
   { label: "At the studio", hint: "Sector 116, Noida", icon: MapPin },
