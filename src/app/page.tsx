@@ -20,7 +20,7 @@ const fadeUp = {
 };
 
 // Card photos for home, senior, personal, kids and Panchakarma: Unsplash / Pexels licences (free for commercial use).
-const programmes = [
+const programmes: { title: string; badge: string; body: string; tags: string[]; href: string; image: string; contain?: boolean }[] = [
   {
     title: "Yoga at Home",
     badge: "At Your Doorstep",
@@ -59,7 +59,8 @@ const programmes = [
     body: "Gentle, targeted sequences for back pain, knees, cervical strain, stress and diabetes.",
     tags: ["Back & knee", "Stress", "Women's wellness"],
     href: "/services#classes",
-    image: "/images/marma.png",
+    image: "/images/pranah_logo.jpg",
+    contain: true,
   },
   {
     title: "Kids Yoga Program",
@@ -183,7 +184,7 @@ export default function Home() {
                 className="group flex flex-col bg-surface-container-lowest rounded-[1.75rem] overflow-hidden border border-outline/10 hover:shadow-2xl hover:shadow-stone-900/10 transition-shadow duration-500"
               >
                 <Link href={p.href} className="relative aspect-[4/3] overflow-hidden bg-surface-container">
-                  <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" />
+                  <Image src={p.image} alt={p.title} fill className={`${p.contain ? "object-contain bg-[#fbf7ee]" : "object-cover"} group-hover:scale-105 transition-transform duration-1000`} sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" />
                   <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
                     {p.badge}
                   </span>

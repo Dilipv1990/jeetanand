@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, Sprout, ArrowUpRight, MapPin, TrainFront } from "lucide-react";
 import { ADDRESS_FULL, NEAREST_METRO, mapsHref } from "@/lib/contact";
@@ -41,14 +42,15 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-20 mb-12 md:mb-20">
           {/* Brand */}
           <div className="max-w-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full border border-primary/30 bg-primary/5 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-primary" />
-              </div>
-              <h2 className="text-[17px] font-headline font-semibold text-primary tracking-tight">
-                Prachi Yoga Center
-              </h2>
-            </div>
+            <h2 className="mb-6">
+              <Image
+                src="/images/pranah_logo.jpg"
+                alt="Pranah"
+                width={128}
+                height={128}
+                className="w-28 h-28 rounded-full shadow-md ring-1 ring-primary/20"
+              />
+            </h2>
             <p className="text-[14px] text-on-surface-variant leading-relaxed font-light mb-6">
               Crafting the pause between breaths through authentic practices in the
               heart of Noida. Yoga at home, any time, anywhere.

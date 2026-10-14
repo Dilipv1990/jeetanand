@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -48,18 +49,16 @@ export default function Navbar() {
         <div className="flex justify-between items-center px-5 md:px-16 max-w-screen-2xl mx-auto">
           {/* Logo */}
           <Link href="/" onClick={() => setMenuOpen(false)} className="relative z-50 group flex items-center gap-3">
-            <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500
-              ${onDark ? "border-white/30 bg-white/10" : "border-primary/30 bg-primary/5"}`}
-            >
-              <div className={`w-3 h-3 rounded-full transition-colors duration-500
-                ${onDark ? "bg-secondary-container" : "bg-primary"}`}
-              />
-            </div>
-            <span className={`text-[15px] font-headline font-semibold tracking-tight transition-colors duration-500
-              ${onDark ? "text-white" : "text-primary"}`}
-            >
-              Prachi Yoga Center
-            </span>
+            <Image
+              src="/images/pranah_logo.jpg"
+              alt="Pranah"
+              width={64}
+              height={64}
+              priority
+              className={`rounded-full shadow-md transition-all duration-500
+                ${solidNav ? "w-12 h-12" : "w-14 h-14 md:w-16 md:h-16"}
+                ${onDark ? "ring-2 ring-white/40" : "ring-1 ring-primary/20"}`}
+            />
           </Link>
 
           {/* Navigation Links */}

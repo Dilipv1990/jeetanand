@@ -19,7 +19,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Prachi Yoga Center | The Living Sanctuary",
+  title: "Pranah | The Living Sanctuary",
   description: "A sanctuary where movement meets stillness. Reconnect with your inner essence through authentic yogic practices.",
 };
 
